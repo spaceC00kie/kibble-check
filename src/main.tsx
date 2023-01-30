@@ -4,10 +4,9 @@ import { App } from "./App"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
 //@ts-ignore
 import { registerSW } from "virtual:pwa-register"
-import { Form } from "./containers/Form"
-import { Wallet } from "./containers/Wallet"
 import { WindowSize } from "./containers/WindowSize"
 import "./index.scss"
+import { Auth } from "./containers/Auth"
 
 const theme = createTheme({
   palette: {
@@ -24,15 +23,13 @@ const theme = createTheme({
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Form.Provider>
+    <Auth.Provider>
       <WindowSize.Provider>
-        <Wallet.Provider>
-          <ThemeProvider theme={theme}>
-            <App />
-          </ThemeProvider>
-        </Wallet.Provider>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </WindowSize.Provider>
-    </Form.Provider>
+    </Auth.Provider>
   </React.StrictMode>,
 )
 

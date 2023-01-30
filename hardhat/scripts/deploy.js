@@ -20,18 +20,18 @@ function setEnvValue(key, value) {
 }
 
 async function main() {
-  console.log("Deploying Frozr contract...")
-  const FrozrContract = await hre.ethers.getContractFactory("Frozr")
-  console.log("Contract instance created...")
-  const frozr = await FrozrContract.deploy()
   console.log("Deploying contract...")
-  await frozr.deployed()
+  const YourContract = await hre.ethers.getContractFactory("YourContract")
+  console.log("Contract instance created...")
+  const yourContract = await YourContract.deploy()
+  console.log("Deploying contract...")
+  await yourContract.deployed()
 
   const network = hre.network.name.toUpperCase()
   console.log(
-    `Frozer contract deployed to: ${frozr.address} on the ${network} network`,
+    `Your Contract contract deployed to: ${yourContract.address} on the ${network} network`,
   )
-  setEnvValue(`VITE_${network}_CONTRACT_ADDRESS`, frozr.address)
+  setEnvValue(`VITE_${network}_CONTRACT_ADDRESS`, yourContract.address)
 }
 
 // We recommend this pattern to be able to use async/await everywhere

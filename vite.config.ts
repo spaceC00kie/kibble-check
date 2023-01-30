@@ -16,9 +16,9 @@ export default defineConfig({
       ],
       manifest: {
         id: "/",
-        name: "Frozr",
-        short_name: "Frozr",
-        description: "A time vault for your crytocurrency",
+        name: "Has the Dog Been Fed?",
+        short_name: "Puppy Hungry?",
+        description: "Keeping track of your dog's meals",
         theme_color: "#ffffff",
         icons: [
           {

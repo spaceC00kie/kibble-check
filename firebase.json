@@ -1,11 +1,11 @@
 {
   "firestore": {
-    "target": "frozr",
+    "target": "has-the-dog-been-fed",
     "rules": "firestore.rules"
   },
   "hosting": [
     {
-      "target": "frozr",
+      "target": "has-the-dog-been-fed",
       "predeploy": "yarn build",
       "public": "dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],

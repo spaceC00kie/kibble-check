@@ -1,15 +1,5 @@
 {
   "projects": {
-    "frozr": "frozr-af283"
-  },
-  "targets": {
-    "frozr-af283": {
-      "hosting": {
-        "frozr": [
-          "frozr-af283"
-        ]
-      }
-    }
-  },
-  "etags": {}
+    "default": "has-the-dog-been-fed"
+  }
 }

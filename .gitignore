@@ -15,6 +15,7 @@ dist-ssr
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/global.code-snippets
 .idea
 .DS_Store
 *.suo
@@ -29,6 +30,7 @@ dist-ssr
 cache/*
 cache
 
+# Files generated from contract deployment
 src/artifacts/@openzeppelin/
 src/artifacts/build-info/
 src/artifacts/hardhat/

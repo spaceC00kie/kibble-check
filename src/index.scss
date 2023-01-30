@@ -3,15 +3,8 @@
 @tailwind utilities;
 
 #app {
-  background: rgb(15, 23, 42);
-  background: linear-gradient(
-    47deg,
-    rgba(15, 23, 42, 1) 0%,
-    rgba(25, 50, 81, 1) 67%,
-    rgba(25, 50, 81, 1) 70%,
-    rgba(27, 36, 73, 1) 77%,
-    rgba(15, 23, 42, 1) 100%
-  );
+  background: rgb(124, 45, 18);
+  background: linear-gradient(314deg, rgba(124, 45, 18, 1) 0%, rgba(153, 68, 28, 1) 51%, rgba(166, 78, 32, 1) 57%, rgba(159, 73, 30, 1) 66%, rgba(225, 125, 51, 1) 84%, rgba(206, 110, 45, 1) 89%, rgba(251, 146, 60, 1) 100%);
 }
 
 $primary: #a8a29e;
@@ -21,23 +14,28 @@ $secondary: #78716c;
   scrollbar-width: thin;
   scrollbar-color: $primary $secondary;
 }
+
 .scrollbar::-webkit-scrollbar {
   @apply h-2 w-2;
 }
+
 .scrollbar::-webkit-scrollbar-track {
   @apply bg-stone-600;
 }
+
 .scrollbar::-webkit-scrollbar-thumb {
   @apply rounded-full bg-stone-400;
 }
+
 .scrollbar::-webkit-scrollbar-corner {
   @apply bg-stone-400;
 }
+
 .color-shift {
   @apply transition-colors duration-300 ease-in-out;
 }
 
-// prevnts a layout shift while popup is visible
+// prevnts a layout shift while SWAL popup is visible
 body {
   padding-right: 0 !important;
 }
