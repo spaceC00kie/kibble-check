@@ -1,16 +1,12 @@
-This is a first rough draft of some boilerplate combining many elements I keep rebuilding.
 
-The stack is Yarn, Vite, Firebase, React, TypeScript, Unstated, Tailwind, Solidity, Ethers, Framer Motion, Docker, Cypress.
+## Has the Dog Been Fed?
 
-## Things to do on new project:
+Do you work a weird schedule?
+Does your dog sometimes seem hungry even when they've had dinner?
+Does your S.O.'s schedule change from week to week?
+Do you often just forget if you've already done something?
 
-1. Before your app will load, you need to add firebase app data to firestore.config.ts
-2. Modify the .firebaserc and set it up, I forget how to init, firebase login or use or something
-3. Change images and logos in the public folder
-4. Update the manifest from vite.config.ts
-5. Update the meta description and title in index.html
-6. Add or purge networks from hardhat.config.js
-7. Purge demo.env and create .env, add your own env stuff
-8. Change art and fill out heading tile
-9. Remove firebase if not using auth; remove wallet if not using crypto.
+Have you ever asked the question "Has the dog been fed?" and not had an answer?
+
+Store all your answers here. Visible to you and your family, even your dog walker!
 

@@ -4,7 +4,16 @@
 
 #app {
   background: rgb(124, 45, 18);
-  background: linear-gradient(314deg, rgba(124, 45, 18, 1) 0%, rgba(153, 68, 28, 1) 51%, rgba(166, 78, 32, 1) 57%, rgba(159, 73, 30, 1) 66%, rgba(225, 125, 51, 1) 84%, rgba(206, 110, 45, 1) 89%, rgba(251, 146, 60, 1) 100%);
+  background: linear-gradient(
+    314deg,
+    rgba(124, 45, 18, 1) 0%,
+    rgba(153, 68, 28, 1) 51%,
+    rgba(166, 78, 32, 1) 57%,
+    rgba(159, 73, 30, 1) 66%,
+    rgba(225, 125, 51, 1) 84%,
+    rgba(206, 110, 45, 1) 89%,
+    rgba(251, 146, 60, 1) 100%
+  );
 }
 
 $primary: #a8a29e;
