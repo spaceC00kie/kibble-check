@@ -44,6 +44,11 @@ $secondary: #78716c;
   @apply transition-colors duration-300 ease-in-out;
 }
 
+.clickable:active {
+  transform: translate(0px, 0.1rem);
+  transform: scale(0.98);
+}
+
 // prevnts a layout shift while SWAL popup is visible
 body {
   padding-right: 0 !important;
