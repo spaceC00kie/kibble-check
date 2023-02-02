@@ -1,5 +1,15 @@
 {
   "projects": {
-    "default": "has-the-dog-been-fed"
-  }
+    "has-the-dog-been-fed": "has-the-dog-been-fed-f9102"
+  },
+  "targets": {
+    "has-the-dog-been-fed-f9102": {
+      "hosting": {
+        "has-the-dog-been-fed": [
+          "has-the-dog-been-fed-f9102"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
