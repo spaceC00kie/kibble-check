@@ -3,6 +3,7 @@ import { HeadingTile } from "./tiles/heading/HeadingTile"
 import { Footer } from "./footer/Footer"
 import { LayoutGroup } from "framer-motion"
 import "../index.scss"
+import { InfoSection } from "./tiles/form/InfoSection"
 
 export const MainContent: React.FC = () => {
   const layoutTransition = {
@@ -15,6 +16,7 @@ export const MainContent: React.FC = () => {
         <LayoutGroup>
           <HeadingTile />
           <FormTile />
+          <InfoSection layoutTransition={layoutTransition} />
           <Footer />
         </LayoutGroup>
       </div>
