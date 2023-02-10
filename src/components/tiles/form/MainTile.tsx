@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 
-export const FormTile = () => {
+export const MainTile = () => {
   return (
     <motion.div
       layout

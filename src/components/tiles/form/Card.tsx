@@ -53,11 +53,11 @@ export const Card: React.FC<Props> = ({
             </div>
           </div>
           <div className="flex h-full flex-col items-center justify-center font-bold text-yellow-50">
-            <div className="z-50 mt-10 p-2 text-center text-yellow-50">
+            <div className="z-50 mt-10 p-2 text-center text-yellow-50 text-lg">
               {title}
             </div>
             <div className="z-50 h-full w-full p-5">
-              <div className="flex h-full flex-col gap-4">
+              <div className="flex h-full flex-col gap-4 text-stone-200">
                 <div className={`${!description2 && "h-full"}`}>
                   {description1}
                 </div>

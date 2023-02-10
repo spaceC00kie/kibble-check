@@ -1,4 +1,4 @@
-import { FormTile } from "./tiles/form/FormTile"
+import { MainTile } from "./tiles/form/MainTile"
 import { HeadingTile } from "./tiles/heading/HeadingTile"
 import { Footer } from "./footer/Footer"
 import { LayoutGroup } from "framer-motion"
@@ -15,7 +15,7 @@ export const MainContent: React.FC = () => {
       <div className="flex max-w-[52em] flex-col gap-3 px-3 pt-4">
         <LayoutGroup>
           <HeadingTile />
-          <FormTile />
+          <MainTile />
           <InfoSection layoutTransition={layoutTransition} />
           <Footer />
         </LayoutGroup>
