@@ -4,6 +4,7 @@ import { Footer } from "./footer/Footer"
 import { LayoutGroup } from "framer-motion"
 import "../index.scss"
 import { InfoSection } from "./tiles/form/InfoSection"
+import { Encouragement } from "./tiles/form/Encouragement"
 
 export const MainContent: React.FC = () => {
   const layoutTransition = {
@@ -17,6 +18,7 @@ export const MainContent: React.FC = () => {
           <HeadingTile />
           <MainTile />
           <InfoSection layoutTransition={layoutTransition} />
+          <Encouragement />
           <Footer />
         </LayoutGroup>
       </div>
