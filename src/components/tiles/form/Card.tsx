@@ -53,7 +53,7 @@ export const Card: React.FC<Props> = ({
             </div>
           </div>
           <div className="flex h-full flex-col items-center justify-center font-bold text-yellow-50">
-            <div className="z-50 mt-10 p-2 text-center text-yellow-50 text-lg">
+            <div className="z-50 mt-10 p-2 text-center text-lg text-yellow-50">
               {title}
             </div>
             <div className="z-50 h-full w-full p-5">
@@ -61,7 +61,7 @@ export const Card: React.FC<Props> = ({
                 <div className={`${!description2 && "h-full"}`}>
                   {description1}
                 </div>
-                <div className="text-yellow-50">{description2}</div>
+                <div className="text-stone-200">{description2}</div>
               </div>
             </div>
             <div className="absolute h-[35em] w-[35em] translate-x-48 translate-y-40 rounded-full bg-red-800 opacity-50 blur-2xl" />
