@@ -7,6 +7,7 @@ import { InfoSection } from "./tiles/form/InfoSection"
 import { Encouragement } from "./tiles/form/Encouragement"
 import { Auth } from "../containers/Auth"
 import { MainTileAuthed } from "./tiles/form/MainTileAuthed"
+import { DayCard } from "./tiles/form/DayCard"
 
 export const MainContent: React.FC = () => {
   const { user } = Auth.useContainer()
@@ -26,7 +27,12 @@ export const MainContent: React.FC = () => {
               <Encouragement />
             </>
           )}
-          <MainTileAuthed />
+          {user && (
+            <>
+              <DayCard />
+              <MainTileAuthed />
+            </>
+          )}
           <Footer />
         </LayoutGroup>
       </div>

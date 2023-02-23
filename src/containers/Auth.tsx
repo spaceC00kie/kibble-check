@@ -34,23 +34,26 @@ const useAuth = () => {
         "users",
         auth.currentUser!.uid,
       ) as DocumentReference<User>
+      const familyDoc = doc(db, "families", auth.currentUser!.uid + "-family")
       runTransaction(db, async (transaction) => {
         const doc = await transaction.get(userDoc)
         if (!doc.exists()) {
           transaction.set(userDoc, {
-            walletAddress: "",
             photoURL: auth.currentUser!.photoURL!,
             displayName: auth.currentUser!.displayName!,
+            joinDate: serverTimestamp(),
+            am: false,
+            pm: false,
             searchableDisplayName: auth.currentUser!.displayName!.toLowerCase(),
             id: auth.currentUser!.uid,
-            hasNewNotifications: false,
             blockedUsers: [],
             sentFriendRequests: [],
             redactedFriendRequests: [],
-            friends: [],
-            joinDate: serverTimestamp(),
-            moderatorLevel: 0,
+            friends: [auth.currentUser!.uid! + "-family"],
             isBanned: false,
+          })
+          transaction.set(familyDoc, {
+            users: [auth.currentUser!.uid],
           })
         }
       })
@@ -63,8 +66,6 @@ const useAuth = () => {
 
   const signOutWithGoogle = async () => {
     auth.signOut()
-    localStorage.setItem("isWalletConnected", "false")
-    localStorage.setItem("walletAddress", "")
   }
 
   return {
