@@ -10,6 +10,7 @@ import {
   getDoc,
   getFirestore,
   setDoc,
+  Timestamp,
   updateDoc,
 } from "firebase/firestore"
 
@@ -24,11 +25,13 @@ export const DayCard: React.FC = () => {
 
   const [am, setAm] = useState(false)
   const [pm, setPm] = useState(false)
+  const [joinDate, setJoinDate] = useState<Timestamp>()
   const [isLoading, setIsLoading] = useState(true)
 
   const userDocRef = auth?.currentUser?.uid
     ? (doc(db, "users", auth.currentUser!.uid) as DocumentReference<User>)
     : null
+
   const storeUserAmInFirestore = (am: boolean) => {
     if (userDocRef) updateDoc(userDocRef, { am })
   }
@@ -47,6 +50,7 @@ export const DayCard: React.FC = () => {
         .then((doc) => {
           setAm(doc.data()?.am ?? false)
           setPm(doc.data()?.pm ?? false)
+          setJoinDate(doc.data()?.joinDate)
         })
         .then(() => {
           setIsLoading(false)
@@ -62,12 +66,18 @@ export const DayCard: React.FC = () => {
     storePmInFirestore(!pm)
     setPm(!pm)
   }
+
   return (
     <div>
       {user && (
         <div className="m-5 flex justify-between gap-3 rounded-md border border-yellow-500 border-opacity-50 bg-red-800 bg-opacity-70 p-2 font-bold text-yellow-50">
           <div className="mx-1 flex items-center justify-between rounded border border-yellow-500 p-1">
-            Date Here
+            {joinDate?.toDate().toLocaleDateString("en-US", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
           </div>
           {isLoading && <div className="w-22">Loading...</div>}
           {!isLoading && (
