@@ -1,4 +1,3 @@
-import { DayCard } from "../components/tiles/form/DayCard"
 import { MainTileAuthed } from "../components/tiles/form/MainTileAuthed"
 import { Auth } from "./Auth"
 
@@ -9,7 +8,6 @@ export const AuthedTiles: React.FC = () => {
     <>
       {user && (
         <>
-          <DayCard />
           <MainTileAuthed />
         </>
       )}

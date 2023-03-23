@@ -1,8 +1,5 @@
-import { useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { createContainer } from "unstated-next"
-import { BigNumber, ethers } from "ethers"
-import { parseEther } from "ethers/lib/utils"
 import {
   getAuth,
   GoogleAuthProvider,
@@ -42,8 +39,6 @@ const useAuth = () => {
             photoURL: auth.currentUser!.photoURL!,
             displayName: auth.currentUser!.displayName!,
             joinDate: serverTimestamp(),
-            am: false,
-            pm: false,
             searchableDisplayName: auth.currentUser!.displayName!.toLowerCase(),
             id: auth.currentUser!.uid,
             blockedUsers: [],

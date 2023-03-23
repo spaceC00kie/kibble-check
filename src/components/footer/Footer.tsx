@@ -9,7 +9,7 @@ interface Props {}
 export const Footer: React.FC<Props> = ({}) => {
   return (
     <motion.div className="flex h-full flex-col justify-end">
-      <div className="flex h-14 items-center justify-between px-24">
+      <div className="flex h-14 w-full items-center justify-between px-24">
         <SocialLink href="" icon={<AiOutlineGithub />} title="github" />
         <SocialLink href="" icon={<FaDiscord />} title="discord" />
         <SocialLink href="" icon={<FaDonate />} title="donate" />
