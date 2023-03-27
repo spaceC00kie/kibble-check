@@ -15,13 +15,21 @@ import {
   DocumentReference,
 } from "firebase/firestore"
 import { User } from "../interfaces/User"
+import { useEffect, useState } from "react"
 
 const db = getFirestore(firebaseApp)
 
 const useAuth = () => {
   const auth = getAuth(firebaseApp)
 
-  const [user] = useAuthState(auth)
+  const [user, loading, error] = useAuthState(auth)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    if (!loading) {
+      setIsLoading(false)
+    }
+  }, [loading])
 
   const signInWithGoogle = async (): Promise<void> => {
     const addToUsers = async (userCred: UserCredential | null) => {
@@ -66,6 +74,7 @@ const useAuth = () => {
   return {
     user,
     auth,
+    isLoading,
     signInWithGoogle,
     signOutWithGoogle,
   }
