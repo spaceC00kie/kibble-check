@@ -1,12 +1,35 @@
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { DayTile } from "./DayTile"
 
 export const MainTileAuthed: React.FC = () => {
   const tiles = Array.from({ length: 7 }).map((_, index) => (
-    <DayTile key={index} />
+    <DayTile key={index} index={index} />
   ))
 
-  const selectedTileIndex = Math.floor(tiles.length / 2)
+  const [selectedTileIndex, setSelectedTileIndex] = useState(
+    Math.floor(tiles.length / 2),
+  )
+
+  useEffect(() => {
+    const handleWheel = (event: WheelEvent) => {
+      if (event.deltaY < 0) {
+        // Scroll up
+        setSelectedTileIndex((prevIndex) => Math.max(prevIndex - 1, 0))
+      } else {
+        // Scroll down
+        setSelectedTileIndex((prevIndex) =>
+          Math.min(prevIndex + 1, tiles.length - 1),
+        )
+      }
+    }
+
+    window.addEventListener("wheel", handleWheel)
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel)
+    }
+  }, [])
 
   return (
     <div className="flex h-[36em] shrink-0 flex-col place-content-center overflow-hidden rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-2 sm:flex-row">

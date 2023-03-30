@@ -22,7 +22,7 @@ const db = getFirestore(firebaseApp)
 const useAuth = () => {
   const auth = getAuth(firebaseApp)
 
-  const [user, loading, error] = useAuthState(auth)
+  const [user, loading] = useAuthState(auth)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
