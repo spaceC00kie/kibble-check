@@ -11,16 +11,18 @@ export const MainTileAuthed: React.FC = () => {
     Math.floor(tiles.length / 2),
   )
 
+  const [scrollValue, setScrollValue] = useState(0)
+
   useEffect(() => {
     const handleWheel = (event: WheelEvent) => {
       if (event.deltaY < 0) {
         // Scroll up
-        setSelectedTileIndex((prevIndex) => Math.max(prevIndex - 1, 0))
+        setScrollValue(scrollValue + 1)
+        console.log(scrollValue)
       } else {
         // Scroll down
-        setSelectedTileIndex((prevIndex) =>
-          Math.min(prevIndex + 1, tiles.length - 1),
-        )
+        setScrollValue(scrollValue - 1)
+        console.log(scrollValue)
       }
     }
 
@@ -29,7 +31,7 @@ export const MainTileAuthed: React.FC = () => {
     return () => {
       window.removeEventListener("wheel", handleWheel)
     }
-  }, [])
+  }, [scrollValue])
 
   return (
     <div className="flex h-[36em] shrink-0 flex-col place-content-center overflow-hidden rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-2 sm:flex-row">
