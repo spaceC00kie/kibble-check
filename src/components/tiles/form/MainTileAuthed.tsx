@@ -34,14 +34,40 @@ export const MainTileAuthed: React.FC = () => {
       }
     }
 
+    const handleKeyDown = (event: KeyboardEvent) => {
+      event.preventDefault()
+
+      if (
+        event.key === "ArrowUp" ||
+        event.key === "w" ||
+        event.key === "W" ||
+        event.key === "PageUp"
+      ) {
+        // Scroll up
+        setScrollValue(scrollValue + 1)
+        console.log(scrollValue)
+      } else if (
+        event.key === "ArrowDown" ||
+        event.key === "s" ||
+        event.key === "S" ||
+        event.key === "PageDown"
+      ) {
+        // Scroll down
+        setScrollValue(scrollValue - 1)
+        console.log(scrollValue)
+      }
+    }
+
     const gridContainer = document.getElementById("grid-container")
     if (gridContainer) {
       gridContainer.addEventListener("wheel", handleWheel)
+      gridContainer.addEventListener("keydown", handleKeyDown)
     }
 
     return () => {
       if (gridContainer) {
         gridContainer.removeEventListener("wheel", handleWheel)
+        gridContainer.removeEventListener("keydown", handleKeyDown)
       }
     }
   }, [scrollValue])
@@ -49,7 +75,7 @@ export const MainTileAuthed: React.FC = () => {
   return (
     <div className="flex h-[36em] shrink-0 flex-col place-content-center overflow-hidden rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-2 sm:flex-row">
       <div className="container grid h-full place-content-center overflow-y-auto p-2 sm:w-1/2">
-        <div id="grid-container" className="relative h-full p-2">
+        <div id="grid-container" className="relative h-full p-2" tabIndex={0}>
           <div className="-gap-2 grid h-full p-2">
             {tiles.map((tile, index) => {
               const distanceFromSelected = Math.abs(index - selectedTileIndex)
