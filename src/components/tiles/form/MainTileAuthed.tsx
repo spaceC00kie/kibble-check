@@ -67,7 +67,7 @@ export const MainTileAuthed: React.FC = () => {
     }
   }, [scrollValue])
 
-  const calculateAnimationValues = (
+  const calculateStyleValues = (
     index: number,
     selectedTileIndex: number,
   ) => {
@@ -105,7 +105,7 @@ export const MainTileAuthed: React.FC = () => {
                     key={index}
                     className=""
                     transition={{ type: "spring", stiffness: 50, damping: 20 }}
-                    style={calculateAnimationValues(index, selectedTileIndex)}
+                    style={calculateStyleValues(index, selectedTileIndex)}
                   >
                     <DayTile index={scrolledIndex} />
                   </motion.div>
