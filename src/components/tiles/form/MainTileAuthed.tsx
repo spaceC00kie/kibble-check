@@ -8,15 +8,10 @@ export const MainTileAuthed: React.FC = () => {
   const allTiles = Array.from({ length: totalTiles }).map((_, index) => (
     <DayTile key={index} index={index} />
   ))
-  const startIndex = Math.floor((totalTiles - visibleTiles) / 2)
-  const endIndex = startIndex + visibleTiles
-
-  const tiles = allTiles.slice(startIndex, endIndex)
 
   const [selectedTileIndex, setSelectedTileIndex] = useState(
     Math.floor(visibleTiles / 2),
   )
-
   const [scrollValue, setScrollValue] = useState(0)
 
   useEffect(() => {
@@ -72,39 +67,50 @@ export const MainTileAuthed: React.FC = () => {
     }
   }, [scrollValue])
 
+  const calculateAnimationValues = (
+    index: number,
+    selectedTileIndex: number,
+  ) => {
+    const distanceFromSelected = Math.abs(index - selectedTileIndex)
+    const scale = 1 - distanceFromSelected / 8
+    const opacity = 1 - distanceFromSelected / 4
+    const zIndex = visibleTiles - Math.abs(index - selectedTileIndex)
+    const translateYDirection = index < selectedTileIndex ? 1 : -1
+    const translateY =
+      distanceFromSelected *
+      10 *
+      translateYDirection *
+      (distanceFromSelected * 1.3)
+    const rotateZ = distanceFromSelected * 6
+
+    return {
+      transform: `scale(${scale}) translateY(${translateY}px) rotateZ(${rotateZ}deg)`,
+      opacity: opacity,
+      zIndex: zIndex,
+    }
+  }
+
   return (
     <div className="flex h-[36em] shrink-0 flex-col place-content-center overflow-hidden rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-2 sm:flex-row">
       <div className="container grid h-full place-content-center overflow-y-auto p-2 sm:w-1/2">
         <div id="grid-container" className="relative h-full p-2" tabIndex={0}>
           <div className="-gap-2 grid h-full p-2">
-            {tiles.map((tile, index) => {
-              const distanceFromSelected = Math.abs(index - selectedTileIndex)
-              const scale = 1 - distanceFromSelected / 8
-              const opacity = 1 - distanceFromSelected / 4
-              const zIndex = tiles.length - distanceFromSelected
-              const translateYDirection = index < selectedTileIndex ? 1 : -1
-              const translateY =
-                distanceFromSelected *
-                10 *
-                translateYDirection *
-                (distanceFromSelected * 1.3)
-              const rotateZ = distanceFromSelected * 6
-
-              return (
-                <motion.div
-                  layout
-                  key={index}
-                  className=""
-                  style={{
-                    transform: `scale(${scale}) translateY(${translateY}px) rotateZ(${rotateZ}deg)`,
-                    opacity: opacity,
-                    zIndex: zIndex,
-                  }}
-                >
-                  {tile}
-                </motion.div>
-              )
-            })}
+            {allTiles
+              .slice(selectedTileIndex - 3, selectedTileIndex + 4)
+              .map((_, index) => {
+                const scrolledIndex = index + scrollValue
+                return (
+                  <motion.div
+                    layout
+                    key={index}
+                    className=""
+                    transition={{ type: "spring", stiffness: 50, damping: 20 }}
+                    style={calculateAnimationValues(index, selectedTileIndex)}
+                  >
+                    <DayTile index={scrolledIndex} />
+                  </motion.div>
+                )
+              })}
           </div>
         </div>
       </div>
