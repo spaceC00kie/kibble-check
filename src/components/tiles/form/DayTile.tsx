@@ -1,11 +1,11 @@
 interface Props {
-  index: number
+  day: number
 }
 
-export const DayTile: React.FC<Props> = ({ index }) => {
+export const DayTile: React.FC<Props> = ({ day }) => {
   return (
-    <div className="place-content-center rounded-md border border-yellow-600 bg-red-900 p-6 text-2xl font-semibold text-yellow-50">
-      Date:___{index}___ AM__ PM__
+    <div className="w-96 place-content-center rounded-md border border-yellow-600 bg-red-900 p-6 text-2xl font-semibold text-yellow-50">
+      Date:___{day}___ AM__ PM__
     </div>
   )
 }

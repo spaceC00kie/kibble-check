@@ -4,14 +4,12 @@ import { TfiThought } from "react-icons/tfi"
 import { GiMagickTrick } from "react-icons/gi"
 import { BiWalk } from "react-icons/bi"
 
-interface Props {
-  layoutTransition: {}
-}
+interface Props {}
 
-export const InfoSection: React.FC<Props> = ({ layoutTransition }) => {
+export const InfoSection: React.FC<Props> = () => {
   return (
     <motion.div
-      transition={layoutTransition}
+      transition={{ duration: 0.28 }}
       initial="hidden"
       animate="visible"
       variants={{
