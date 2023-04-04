@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
-import { MainTileAuthed } from "../components/tiles/form/MainTileAuthed"
-import { Auth } from "./Auth"
+import { MainTileAuthed } from "./form/MainTileAuthed"
+import { Auth } from "../../containers/Auth"
 
 export const AuthedTiles: React.FC = () => {
   const { user, isLoading } = Auth.useContainer()

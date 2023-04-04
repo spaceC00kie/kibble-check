@@ -1,10 +1,10 @@
 import { Footer } from "./footer/Footer"
 import { LayoutGroup } from "framer-motion"
 import "../index.scss"
-import { UnauthedTiles } from "../containers/UnauthedTiles"
-import { AuthedTiles } from "../containers/AuthedTiles"
+import { AuthedTiles } from "./tiles/AuthedTiles"
 import { LoadingPage } from "./LoadingPage"
 import { Auth } from "../containers/Auth"
+import { UnauthedTiles } from "./tiles/UnauthedTiles"
 
 export const MainContent: React.FC = () => {
   const { user, isLoading } = Auth.useContainer()

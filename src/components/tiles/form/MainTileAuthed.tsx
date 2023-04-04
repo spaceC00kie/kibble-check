@@ -1,78 +1,46 @@
-import React, { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import React, { useState } from "react"
+import {
+  AnimationControls,
+  TargetAndTransition,
+  VariantLabels,
+  motion,
+} from "framer-motion"
 import { DayTile } from "./DayTile"
+import { useTileNavigation } from "./UseTileNavigation"
 
 export const MainTileAuthed: React.FC = () => {
   const [selectedTileIndex, setSelectedTileIndex] = useState(50)
 
-  useEffect(() => {
-    const handleWheel = (event: WheelEvent) => {
-      event.preventDefault()
+  useTileNavigation(selectedTileIndex, setSelectedTileIndex)
 
-      if (event.deltaY < 0) {
-        // Scroll up
-        setSelectedTileIndex(selectedTileIndex + 1)
-        console.log(selectedTileIndex)
-      } else {
-        // Scroll down
-        setSelectedTileIndex(selectedTileIndex - 1)
-        console.log(selectedTileIndex)
-      }
-    }
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      event.preventDefault()
-
-      if (
-        event.key === "ArrowUp" ||
-        event.key === "w" ||
-        event.key === "W" ||
-        event.key === "PageUp"
-      ) {
-        // Scroll up
-        setSelectedTileIndex(selectedTileIndex + 1)
-        console.log(selectedTileIndex)
-      } else if (
-        event.key === "ArrowDown" ||
-        event.key === "s" ||
-        event.key === "S" ||
-        event.key === "PageDown"
-      ) {
-        // Scroll down
-        setSelectedTileIndex(selectedTileIndex - 1)
-        console.log(selectedTileIndex)
-      }
-    }
-
-    window.addEventListener("wheel", handleWheel)
-    window.addEventListener("keydown", handleKeyDown)
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel)
-      window.removeEventListener("keydown", handleKeyDown)
-    }
-  }, [selectedTileIndex])
-
-  const calculateStyleValues = (index: number, selectedTileIndex: number) => {
+  const animate = (
+    index: number,
+    selectedTileIndex: number,
+  ):
+    | boolean
+    | VariantLabels
+    | AnimationControls
+    | TargetAndTransition
+    | undefined => {
     const distanceFromSelected = Math.abs(index - selectedTileIndex)
     const scale = 1 - distanceFromSelected / 8
     const opacity = 1 - distanceFromSelected / 4
     const visibleTiles = 9
     const zIndex = visibleTiles - Math.abs(index - selectedTileIndex)
     const translateYDirection = index < selectedTileIndex ? 1 : -1
-    const translateY =
+    const y =
       distanceFromSelected *
       10 *
       translateYDirection *
       (distanceFromSelected * 1.3)
-    const rotateZ = distanceFromSelected * 6
+    const rotate = distanceFromSelected * 6
 
     return {
-      scale: scale,
-      y: translateY,
-      rotate: rotateZ,
-      opacity: opacity,
-      zIndex: zIndex,
+      scale,
+      y,
+      rotate,
+      opacity,
+      zIndex,
     }
   }
 
@@ -80,10 +48,10 @@ export const MainTileAuthed: React.FC = () => {
     <motion.div
       layout
       initial={{ opacity: 0, scale: 0 }}
-      animate={calculateStyleValues(index, selectedTileIndex)}
+      animate={animate(index, selectedTileIndex)}
       key={index}
       className=""
-      transition={{ type: "spring", mass: 0.1 }}
+      transition={{ type: "spring", bounce: 1, mass: 0.3, restDelta: 0 }}
     >
       <DayTile key={index} day={index} />
     </motion.div>

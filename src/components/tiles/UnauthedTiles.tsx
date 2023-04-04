@@ -1,9 +1,9 @@
-import { Auth } from "../containers/Auth"
-import { HeadingTile } from "../components/tiles/heading/HeadingTile"
-import { Encouragement } from "../components/tiles/form/Encouragement"
-import { InfoSection } from "../components/tiles/form/InfoSection"
-import { MainTile } from "../components/tiles/form/MainTile"
 import { motion } from "framer-motion"
+import { Auth } from "../../containers/Auth"
+import { Encouragement } from "./form/Encouragement"
+import { InfoSection } from "./form/InfoSection"
+import { MainTile } from "./form/MainTile"
+import { HeadingTile } from "./heading/HeadingTile"
 
 export const UnauthedTiles: React.FC = () => {
   const { user, isLoading } = Auth.useContainer()
