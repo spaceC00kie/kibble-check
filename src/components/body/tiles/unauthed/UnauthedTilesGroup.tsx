@@ -1,11 +1,11 @@
 import { motion } from "framer-motion"
-import { Auth } from "../../containers/Auth"
-import { Encouragement } from "./form/Encouragement"
-import { InfoSection } from "./form/InfoSection"
-import { MainTile } from "./form/MainTile"
-import { HeadingTile } from "./heading/HeadingTile"
+import { Auth } from "../../../../containers/Auth"
+import { Encouragement } from "./Encouragement"
+import { InfoTile } from "./InfoTile"
+import { MainTileUnauthed } from "./MainTileUnauthed"
+import { IntroductionTile } from "./IntroductionTile"
 
-export const UnauthedTiles: React.FC = () => {
+export const UnauthedTilesGroup: React.FC = () => {
   const { user, isLoading } = Auth.useContainer()
 
   return (
@@ -18,9 +18,9 @@ export const UnauthedTiles: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <HeadingTile />
-          <MainTile />
-          <InfoSection />
+          <IntroductionTile />
+          <MainTileUnauthed />
+          <InfoTile />
           <Encouragement />
         </motion.div>
       )}

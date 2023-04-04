@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { Header } from "./components/header/Header"
-import { MainContent } from "./components/MainContent"
+import { MainContent } from "./components/body/MainContent"
 
 export const App: React.FC = () => {
   return (

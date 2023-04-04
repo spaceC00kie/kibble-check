@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { default as calendar } from "/src/assets/undraw_chore_list.svg"
 
-export const MainTile = () => {
+export const MainTileUnauthed = () => {
   return (
     <motion.div
       layout

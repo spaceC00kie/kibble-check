@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
-import { Auth } from "../containers/Auth"
+import { Auth } from "../../containers/Auth"
 
-export const LoadingPage: React.FC = () => {
+export const LoadingSpinner: React.FC = () => {
   const { isLoading } = Auth.useContainer()
   return (
     <>

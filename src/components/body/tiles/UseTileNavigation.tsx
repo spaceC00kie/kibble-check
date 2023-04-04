@@ -6,8 +6,6 @@ export const useTileNavigation = (
 ) => {
   useEffect(() => {
     const handleWheel = (event: WheelEvent) => {
-      event.preventDefault()
-
       if (event.deltaY < 0) {
         // Scroll up
         setSelectedTileIndex(selectedTileIndex + 1)
@@ -20,8 +18,6 @@ export const useTileNavigation = (
     }
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      event.preventDefault()
-
       if (
         event.key === "ArrowUp" ||
         event.key === "w" ||

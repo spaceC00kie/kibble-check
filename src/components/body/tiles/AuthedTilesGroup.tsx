@@ -1,8 +1,8 @@
 import { motion } from "framer-motion"
-import { MainTileAuthed } from "./form/MainTileAuthed"
-import { Auth } from "../../containers/Auth"
+import { Calendar } from "./Calendar"
+import { Auth } from "../../../containers/Auth"
 
-export const AuthedTiles: React.FC = () => {
+export const AuthedTilesGroup: React.FC = () => {
   const { user, isLoading } = Auth.useContainer()
 
   return (
@@ -14,7 +14,7 @@ export const AuthedTiles: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <MainTileAuthed />
+          <Calendar />
         </motion.div>
       )}
     </>

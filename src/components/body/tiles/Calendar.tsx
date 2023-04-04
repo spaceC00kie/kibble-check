@@ -5,10 +5,10 @@ import {
   VariantLabels,
   motion,
 } from "framer-motion"
-import { DayTile } from "./DayTile"
+import { DayCard } from "./DayCard"
 import { useTileNavigation } from "./UseTileNavigation"
 
-export const MainTileAuthed: React.FC = () => {
+export const Calendar: React.FC = () => {
   const [selectedTileIndex, setSelectedTileIndex] = useState(50)
 
   useTileNavigation(selectedTileIndex, setSelectedTileIndex)
@@ -53,7 +53,7 @@ export const MainTileAuthed: React.FC = () => {
       className=""
       transition={{ type: "spring", bounce: 1, mass: 0.3, restDelta: 0 }}
     >
-      <DayTile key={index} day={index} />
+      <DayCard key={index} day={index} />
     </motion.div>
   ))
 

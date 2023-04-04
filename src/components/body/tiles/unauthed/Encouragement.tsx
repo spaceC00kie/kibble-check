@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { SignInButton } from "../../header/SignInButton"
+import { SignInButton } from "../../../header/SignInButton"
 
 export const Encouragement = () => {
   return (

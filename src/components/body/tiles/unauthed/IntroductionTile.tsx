@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 // dog icon accent color is orange-600
 import { default as vault } from "/src/assets/headingTile.svg"
 
-export const HeadingTile = () => {
+export const IntroductionTile = () => {
   return (
     <motion.div
       layout

@@ -1,10 +1,10 @@
-import { Footer } from "./footer/Footer"
+import { Footer } from "../footer/Footer"
 import { LayoutGroup } from "framer-motion"
-import "../index.scss"
-import { AuthedTiles } from "./tiles/AuthedTiles"
-import { LoadingPage } from "./LoadingPage"
-import { Auth } from "../containers/Auth"
-import { UnauthedTiles } from "./tiles/UnauthedTiles"
+import "../../index.scss"
+import { Auth } from "../../containers/Auth"
+import { AuthedTilesGroup } from "./tiles/AuthedTilesGroup"
+import { LoadingSpinner } from "./LoadingSpinner"
+import { UnauthedTilesGroup } from "./tiles/unauthed/UnauthedTilesGroup"
 
 export const MainContent: React.FC = () => {
   const { user, isLoading } = Auth.useContainer()
@@ -14,11 +14,11 @@ export const MainContent: React.FC = () => {
       <div className="flex max-w-[52em] grow flex-col gap-3 px-3 pt-4">
         <LayoutGroup>
           {isLoading ? (
-            <LoadingPage />
+            <LoadingSpinner />
           ) : user ? (
-            <AuthedTiles />
+            <AuthedTilesGroup />
           ) : (
-            <UnauthedTiles />
+            <UnauthedTilesGroup />
           )}
           <Footer />
         </LayoutGroup>

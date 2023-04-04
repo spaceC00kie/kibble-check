@@ -7,7 +7,7 @@ interface Props {
   icon?: React.ReactNode
 }
 
-export const Card: React.FC<Props> = ({
+export const InfoCard: React.FC<Props> = ({
   title,
   description1,
   description2,
