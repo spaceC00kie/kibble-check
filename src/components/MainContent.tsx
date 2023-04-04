@@ -16,16 +16,11 @@ export const MainContent: React.FC = () => {
           {isLoading ? (
             <LoadingPage />
           ) : user ? (
-            <>
-              <AuthedTiles />
-              <Footer />
-            </>
+            <AuthedTiles />
           ) : (
-            <>
-              <UnauthedTiles />
-              <Footer />
-            </>
+            <UnauthedTiles />
           )}
+          <Footer />
         </LayoutGroup>
       </div>
     </div>
