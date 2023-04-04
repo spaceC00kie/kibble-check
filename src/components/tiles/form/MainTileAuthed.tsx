@@ -46,17 +46,12 @@ export const MainTileAuthed: React.FC = () => {
       }
     }
 
-    const gridContainer = document.getElementById("grid-container")
-    if (gridContainer) {
-      gridContainer.addEventListener("wheel", handleWheel)
-      gridContainer.addEventListener("keydown", handleKeyDown)
-    }
+    window.addEventListener("wheel", handleWheel)
+    window.addEventListener("keydown", handleKeyDown)
 
     return () => {
-      if (gridContainer) {
-        gridContainer.removeEventListener("wheel", handleWheel)
-        gridContainer.removeEventListener("keydown", handleKeyDown)
-      }
+      window.removeEventListener("wheel", handleWheel)
+      window.removeEventListener("keydown", handleKeyDown)
     }
   }, [selectedTileIndex])
 
@@ -89,21 +84,15 @@ export const MainTileAuthed: React.FC = () => {
       animate={calculateStyleValues(index, selectedTileIndex)}
       key={index}
       className=""
-      transition={{ type: "spring", stiffness: 50, damping: 20 }}
+      transition={{ type: "spring", mass: 0.3 }}
     >
       <DayTile key={index} day={index} />
     </motion.div>
   ))
 
   return (
-    <div className="flex h-[36em] shrink-0 flex-col place-content-center overflow-hidden rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-2 sm:flex-row">
-      <div className="container grid h-full place-content-center overflow-y-auto p-2 sm:w-1/2">
-        <div id="grid-container" className="relative h-full p-2">
-          <div className="-gap-2 grid h-full p-2">
-            {allTiles.slice(selectedTileIndex - 4, selectedTileIndex + 5)}
-          </div>
-        </div>
-      </div>
+    <div className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-2">
+      {allTiles.slice(selectedTileIndex - 4, selectedTileIndex + 5)}
     </div>
   )
 }
