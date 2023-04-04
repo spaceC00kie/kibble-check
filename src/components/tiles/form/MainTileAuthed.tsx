@@ -3,8 +3,6 @@ import { motion } from "framer-motion"
 import { DayTile } from "./DayTile"
 
 export const MainTileAuthed: React.FC = () => {
-  const visibleTiles = 9
-
   const [selectedTileIndex, setSelectedTileIndex] = useState(50)
 
   useEffect(() => {
@@ -59,6 +57,7 @@ export const MainTileAuthed: React.FC = () => {
     const distanceFromSelected = Math.abs(index - selectedTileIndex)
     const scale = 1 - distanceFromSelected / 8
     const opacity = 1 - distanceFromSelected / 4
+    const visibleTiles = 9
     const zIndex = visibleTiles - Math.abs(index - selectedTileIndex)
     const translateYDirection = index < selectedTileIndex ? 1 : -1
     const translateY =
@@ -84,7 +83,7 @@ export const MainTileAuthed: React.FC = () => {
       animate={calculateStyleValues(index, selectedTileIndex)}
       key={index}
       className=""
-      transition={{ type: "spring", mass: 0.3 }}
+      transition={{ type: "spring", mass: 0.1 }}
     >
       <DayTile key={index} day={index} />
     </motion.div>
