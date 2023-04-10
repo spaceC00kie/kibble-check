@@ -53,12 +53,16 @@ export const Calendar: React.FC = () => {
       className=""
       transition={{ type: "spring", bounce: 1, mass: 0.3, restDelta: 0 }}
     >
-      <DayCard key={index} day={index} />
+      <DayCard
+        key={index}
+        day={index}
+        isSelected={selectedTileIndex === index}
+      />
     </motion.div>
   ))
 
   return (
-    <div className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-2">
+    <div className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden p-2">
       {allTiles.slice(selectedTileIndex - 4, selectedTileIndex + 5)}
     </div>
   )
