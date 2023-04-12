@@ -46,5 +46,5 @@ export const useTileNavigation = (
       window.removeEventListener("wheel", handleWheel)
       window.removeEventListener("keydown", handleKeyDown)
     }
-  }, [selectedTileIndex, setSelectedTileIndex])
+  }, [selectedTileIndex])
 }
