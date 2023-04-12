@@ -1,5 +1,5 @@
 import { Checkbox, FormControlLabel } from "@mui/material"
-import { green, yellow, red } from "@mui/material/colors"
+import { green, yellow, red, orange } from "@mui/material/colors"
 import dayjs from "dayjs"
 import {
   collection,
@@ -76,9 +76,9 @@ export const DayCard: React.FC<Props> = ({ day, isSelected }) => {
               disabled={!isSelected}
               size="medium"
               sx={{
-                color: yellow[800],
+                color: "#ca8a04", // tailwind yellow-600
                 "&.Mui-checked": {
-                  color: green[600],
+                  color: "#eab308", // tailwind yellow-500
                 },
               }}
             />
@@ -94,9 +94,9 @@ export const DayCard: React.FC<Props> = ({ day, isSelected }) => {
               disabled={!isSelected}
               size="medium"
               sx={{
-                color: red[600],
+                color: "#ea580c", // tailwind orange-600
                 "&.Mui-checked": {
-                  color: green[600],
+                  color: "#f97316", // tailwind orange-500
                 },
               }}
             />
