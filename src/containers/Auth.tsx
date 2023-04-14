@@ -50,9 +50,9 @@ const useAuth = () => {
             searchableDisplayName: auth.currentUser!.displayName!.toLowerCase(),
             id: auth.currentUser!.uid,
             blockedUsers: [],
-            sentFriendRequests: [],
-            redactedFriendRequests: [],
-            friends: [auth.currentUser!.uid! + "-family"],
+            sentFamilyRequests: [],
+            redactedFamilyRequests: [],
+            familyMembers: [auth.currentUser!.uid! + "-family"],
             isBanned: false,
           })
           transaction.set(familyDoc, {

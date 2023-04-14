@@ -8,9 +8,9 @@ export type User = {
   searchableDisplayName: string
   id: string
   blockedUsers?: string[]
-  sentFriendRequests?: string[]
-  redactedFriendRequests?: string[]
-  friends?: string[]
+  sentFamilyRequests?: string[]
+  redactedFamilyRequests?: string[]
+  familyMembers?: string[]
   joinDate: Timestamp
   isBanned: boolean
 }
