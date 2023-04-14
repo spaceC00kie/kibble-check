@@ -1,5 +1,4 @@
 import { Checkbox, FormControlLabel } from "@mui/material"
-import { green, yellow, red, orange } from "@mui/material/colors"
 import dayjs from "dayjs"
 import {
   collection,
@@ -10,6 +9,7 @@ import {
 } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { firebaseApp } from "../../../../firestore.config"
+import { Auth } from "../../../containers/Auth"
 
 interface Props {
   day: number
@@ -19,18 +19,18 @@ interface Props {
 const db = getFirestore(firebaseApp)
 
 export const DayCard: React.FC<Props> = ({ day, isSelected }) => {
+  const { auth } = Auth.useContainer()
+
   const todaysDate = dayjs()
   const dateOffsetValue = day - 50
   const offsetTileDate = todaysDate.add(dateOffsetValue, "day")
   const prettyDate = offsetTileDate.format("MMMM D, YYYY")
   const firestoreDate = prettyDate.valueOf()
+  const dayDocRef = doc(db, "families", auth?.currentUser?.uid + "-family", "days", firestoreDate.toString())
 
   const [am, setAm] = useState(false)
   const [pm, setPm] = useState(false)
-
-  const daysColRef = collection(db, "days")
-  const dayDocRef = doc(daysColRef, firestoreDate.toString())
-
+  
   const storeAmInFirestore = (am: Boolean) => {
     setDoc(dayDocRef, { am }, { merge: true })
   }
