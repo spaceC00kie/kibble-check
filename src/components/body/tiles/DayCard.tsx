@@ -1,11 +1,6 @@
 import { Checkbox, FormControlLabel } from "@mui/material"
 import dayjs from "dayjs"
-import {
-  doc,
-  getDoc,
-  getFirestore,
-  setDoc
-} from "firebase/firestore"
+import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { firebaseApp } from "../../../../firestore.config"
 import { Auth } from "../../../containers/Auth"
@@ -13,23 +8,30 @@ import { Auth } from "../../../containers/Auth"
 interface Props {
   day: number
   isSelected: boolean
+  tileLength: number
 }
 
 const db = getFirestore(firebaseApp)
 
-export const DayCard: React.FC<Props> = ({ day, isSelected }) => {
+export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
   const { auth } = Auth.useContainer()
 
   const todaysDate = dayjs()
-  const dateOffsetValue = day - 50
+  const dateOffsetValue = day - tileLength / 2
   const offsetTileDate = todaysDate.add(dateOffsetValue, "day")
   const prettyDate = offsetTileDate.format("MMMM D, YYYY")
   const firestoreDate = prettyDate.valueOf()
-  const dayDocRef = doc(db, "families", auth?.currentUser?.uid + "-family", "days", firestoreDate.toString())
+  const dayDocRef = doc(
+    db,
+    "families",
+    auth?.currentUser?.uid + "-family",
+    "days",
+    firestoreDate.toString(),
+  )
 
   const [am, setAm] = useState(false)
   const [pm, setPm] = useState(false)
-  
+
   const storeAmInFirestore = (am: Boolean) => {
     setDoc(dayDocRef, { am }, { merge: true })
   }

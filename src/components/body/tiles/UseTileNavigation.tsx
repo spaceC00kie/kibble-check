@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 
-export const useTileNavigation = (
-  selectedTileIndex: number,
-  setSelectedTileIndex: (index: number) => void,
-) => {
+export const useTileNavigation = () => {
+  const tileLength = 10000
+  const [selectedTileIndex, setSelectedTileIndex] = useState(tileLength / 2)
   const [startY, setStartY] = useState<number>(0)
 
   useEffect(() => {
@@ -68,4 +67,8 @@ export const useTileNavigation = (
       window.removeEventListener("touchmove", handleTouchMove)
     }
   }, [selectedTileIndex, startY])
+  return {
+    selectedTileIndex,
+    tileLength,
+  }
 }

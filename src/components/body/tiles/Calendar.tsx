@@ -1,17 +1,15 @@
-import React, { useState } from "react"
 import {
   AnimationControls,
   TargetAndTransition,
   VariantLabels,
   motion,
 } from "framer-motion"
+import React, { useMemo } from "react"
 import { DayCard } from "./DayCard"
 import { useTileNavigation } from "./UseTileNavigation"
 
 export const Calendar: React.FC = () => {
-  const [selectedTileIndex, setSelectedTileIndex] = useState(50)
-
-  useTileNavigation(selectedTileIndex, setSelectedTileIndex)
+  const { selectedTileIndex, tileLength } = useTileNavigation()
 
   const animate = (
     index: number,
@@ -44,7 +42,13 @@ export const Calendar: React.FC = () => {
     }
   }
 
-  const allTiles = Array.from({ length: 100 }).map((_, index) => (
+  const visibleTiles = useMemo(() => {
+    const start = Math.max(0, selectedTileIndex - 4)
+    const end = Math.min(tileLength, selectedTileIndex + 5)
+    return Array.from({ length: end - start }, (_, index) => index + start)
+  }, [tileLength, selectedTileIndex])
+
+  const tiles = visibleTiles.map((index) => (
     <motion.div
       layout
       initial={{ opacity: 0, scale: 0 }}
@@ -54,16 +58,16 @@ export const Calendar: React.FC = () => {
       transition={{ type: "spring", bounce: 1, mass: 0.3, restDelta: 0 }}
     >
       <DayCard
-        key={index}
         day={index}
         isSelected={selectedTileIndex === index}
+        tileLength={tileLength}
       />
     </motion.div>
   ))
 
   return (
     <div className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden p-2">
-      {allTiles.slice(selectedTileIndex - 4, selectedTileIndex + 5)}
+      {tiles}
     </div>
   )
 }
