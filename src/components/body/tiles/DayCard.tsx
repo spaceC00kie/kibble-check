@@ -1,11 +1,10 @@
 import { Checkbox, FormControlLabel } from "@mui/material"
 import dayjs from "dayjs"
 import {
-  collection,
   doc,
   getDoc,
   getFirestore,
-  setDoc,
+  setDoc
 } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { firebaseApp } from "../../../../firestore.config"
