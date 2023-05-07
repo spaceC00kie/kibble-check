@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 import { createContainer } from "unstated-next"
 
 const useWindowSize = () => {
-  const [width, setWidth] = useState<number>(window.innerWidth)
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
 
   const handleWindowSizeChange = () => {
-    setWidth(window.innerWidth)
+    setWindowWidth(window.innerWidth)
   }
 
   useEffect(() => {
@@ -13,11 +13,11 @@ const useWindowSize = () => {
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange)
     }
-  }, [width])
+  }, [windowWidth])
 
-  const isSmall = width < 500
+  const isSmall = windowWidth < 500
 
-  return { width, isSmall }
+  return { windowWidth, isSmall }
 }
 
 export const WindowSize = createContainer(useWindowSize)

@@ -65,7 +65,7 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
   const loadingStyle = isLoading ? "animate-pulse" : ""
 
   return (
-    <div className="flex w-96 justify-between overflow-clip whitespace-nowrap rounded-md border border-yellow-600 bg-red-900 p-6 text-2xl font-semibold text-yellow-50">
+    <>
       <div>{prettyDate}</div>
       <div>
         <FormControlLabel
@@ -105,6 +105,6 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
           label="PM"
         />
       </div>
-    </div>
+    </>
   )
 }

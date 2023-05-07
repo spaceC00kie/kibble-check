@@ -6,7 +6,7 @@ export const AuthedTilesGroup: React.FC = () => {
   const { user, isLoading } = Auth.useContainer()
 
   return (
-    <>
+    <div className="grid place-content-center h-full">
       {user && !isLoading && (
         <motion.div
           layout
@@ -17,6 +17,6 @@ export const AuthedTilesGroup: React.FC = () => {
           <Calendar />
         </motion.div>
       )}
-    </>
+    </div>
   )
 }
