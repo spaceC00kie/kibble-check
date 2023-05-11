@@ -4,6 +4,10 @@ import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { firebaseApp } from "../../../../firestore.config"
 import { Auth } from "../../../containers/Auth"
+import { Date } from "../../../containers/Date"
+import advancedFormat from "dayjs/plugin/advancedFormat"
+
+dayjs.extend(advancedFormat)
 
 interface Props {
   day: number
@@ -15,11 +19,16 @@ const db = getFirestore(firebaseApp)
 
 export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
   const { auth } = Auth.useContainer()
+  const { setSelectedTileDate } = Date.useContainer()
+
+  useEffect(() => {
+    if (isSelected) setSelectedTileDate(offsetTileDate)
+  }, [isSelected])
 
   const todaysDate = dayjs()
   const dateOffsetValue = day - tileLength / 2
   const offsetTileDate = todaysDate.add(dateOffsetValue, "day")
-  const prettyDate = offsetTileDate.format("MMMM D, YYYY")
+  const prettyDate = offsetTileDate.format("Do dddd")
   const firestoreDate = prettyDate.valueOf()
   const dayDocRef = doc(
     db,
@@ -65,7 +74,7 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
   const loadingStyle = isLoading ? "animate-pulse" : ""
 
   return (
-    <>
+    <div className="flex w-full items-center justify-between gap-2">
       <div>{prettyDate}</div>
       <div>
         <FormControlLabel
@@ -84,7 +93,7 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
               }}
             />
           }
-          label="AM"
+          label="am"
         />
         <FormControlLabel
           className={loadingStyle}
@@ -102,9 +111,9 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
               }}
             />
           }
-          label="PM"
+          label="pm"
         />
       </div>
-    </>
+    </div>
   )
 }
