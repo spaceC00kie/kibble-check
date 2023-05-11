@@ -1,12 +1,23 @@
+# Has the Dog Been Fed?
+### Hosted at KibbleCheck.com
+## No more double-dinners or missed meals for your fur-baby!
 
-## Has the Dog Been Fed?
+Introducing KibbleCheck.com, a unique Progressive Web App (PWA) designed to eliminate the guesswork and stress from your dog's meal schedule. Catering to the modern, busy pet owner, we ensure your dog is fed on time, every time, and that overfeeding due to confusion is a thing of the past.
 
-Do you work a weird schedule?
-Does your dog sometimes seem hungry even when they've had dinner?
-Does your S.O.'s schedule change from week to week?
-Do you often just forget if you've already done something?
+## Easy-to-use
 
-Have you ever asked the question "Has the dog been fed?" and not had an answer?
+Our user-friendly custom calendar rolodex component allows you to simply scroll to any day and check a box for AM and PM meals. Each checked checkbox represents a meal that's been completed, offering you peace of mind and securing a consistent feeding routine for your pet.
 
-Store all your answers here. Visible to you and your family, even your dog walker!
+## Collaborative Feeding
 
+In the pipeline is a feature that will allow multiple users to access and update your dog's meal calendar. Whether it's a spouse, dog walker, neighbor, or a family member assisting with feeding duties, they can easily mark when they've fed your furry friend. No more waking up your partner to ask if the dog was fed or worrying about your dog's meal while you're away.
+
+## Built with cutting-edge tech
+
+KibbleCheck is built with Typescript, styled with TailwindCSS for a sleek, intuitive user interface, and uses Firebase for reliable, real-time data storage.
+
+## Your dog's feeding routine, simplified
+
+With KibbleCheck.com, imagine coming home from work and never having to wonder if your dog has been fed. We're here to simplify your dog's feeding schedule and ensure they're getting the right amount of meals each day.
+
+Join us on this journey to make pet ownership just a little bit easier, one meal at a time.
