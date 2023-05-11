@@ -1,4 +1,3 @@
-import { Footer } from "../footer/Footer"
 import { LayoutGroup } from "framer-motion"
 import "../../index.scss"
 import { Auth } from "../../containers/Auth"
@@ -20,7 +19,6 @@ export const MainContent: React.FC = () => {
           ) : (
             <UnauthedTilesGroup />
           )}
-          <Footer />
         </LayoutGroup>
       </div>
     </div>

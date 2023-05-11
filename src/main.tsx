@@ -7,6 +7,7 @@ import { registerSW } from "virtual:pwa-register"
 import { WindowSize } from "./containers/WindowSize"
 import "./index.scss"
 import { Auth } from "./containers/Auth"
+import { Date } from "./containers/Date"
 
 const theme = createTheme({
   palette: {
@@ -25,9 +26,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Auth.Provider>
       <WindowSize.Provider>
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
+        <Date.Provider>
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
+        </Date.Provider>
       </WindowSize.Provider>
     </Auth.Provider>
   </React.StrictMode>,

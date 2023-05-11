@@ -1,36 +1,46 @@
 import { Checkbox, FormControlLabel } from "@mui/material"
 import dayjs from "dayjs"
-import {
-  collection,
-  doc,
-  getDoc,
-  getFirestore,
-  setDoc,
-} from "firebase/firestore"
+import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { firebaseApp } from "../../../../firestore.config"
 import { Auth } from "../../../containers/Auth"
+import { Date } from "../../../containers/Date"
+import advancedFormat from "dayjs/plugin/advancedFormat"
+
+dayjs.extend(advancedFormat)
 
 interface Props {
   day: number
   isSelected: boolean
+  tileLength: number
 }
 
 const db = getFirestore(firebaseApp)
 
-export const DayCard: React.FC<Props> = ({ day, isSelected }) => {
+export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
   const { auth } = Auth.useContainer()
+  const { setSelectedTileDate } = Date.useContainer()
+
+  useEffect(() => {
+    if (isSelected) setSelectedTileDate(offsetTileDate)
+  }, [isSelected])
 
   const todaysDate = dayjs()
-  const dateOffsetValue = day - 50
+  const dateOffsetValue = day - tileLength / 2
   const offsetTileDate = todaysDate.add(dateOffsetValue, "day")
-  const prettyDate = offsetTileDate.format("MMMM D, YYYY")
+  const prettyDate = offsetTileDate.format("Do dddd")
   const firestoreDate = prettyDate.valueOf()
-  const dayDocRef = doc(db, "families", auth?.currentUser?.uid + "-family", "days", firestoreDate.toString())
+  const dayDocRef = doc(
+    db,
+    "families",
+    auth?.currentUser?.uid + "-family",
+    "days",
+    firestoreDate.toString(),
+  )
 
   const [am, setAm] = useState(false)
   const [pm, setPm] = useState(false)
-  
+
   const storeAmInFirestore = (am: Boolean) => {
     setDoc(dayDocRef, { am }, { merge: true })
   }
@@ -64,7 +74,7 @@ export const DayCard: React.FC<Props> = ({ day, isSelected }) => {
   const loadingStyle = isLoading ? "animate-pulse" : ""
 
   return (
-    <div className="flex w-96 justify-between overflow-clip whitespace-nowrap rounded-md border border-yellow-600 bg-red-900 p-6 text-2xl font-semibold text-yellow-50">
+    <div className="flex w-full items-center justify-between gap-2">
       <div>{prettyDate}</div>
       <div>
         <FormControlLabel
@@ -83,7 +93,7 @@ export const DayCard: React.FC<Props> = ({ day, isSelected }) => {
               }}
             />
           }
-          label="AM"
+          label="am"
         />
         <FormControlLabel
           className={loadingStyle}
@@ -101,7 +111,7 @@ export const DayCard: React.FC<Props> = ({ day, isSelected }) => {
               }}
             />
           }
-          label="PM"
+          label="pm"
         />
       </div>
     </div>

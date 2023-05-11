@@ -4,6 +4,7 @@ import { Encouragement } from "./Encouragement"
 import { InfoTile } from "./InfoTile"
 import { MainTileUnauthed } from "./MainTileUnauthed"
 import { IntroductionTile } from "./IntroductionTile"
+import { Footer } from "../../../footer/Footer"
 
 export const UnauthedTilesGroup: React.FC = () => {
   const { user, isLoading } = Auth.useContainer()
@@ -22,6 +23,7 @@ export const UnauthedTilesGroup: React.FC = () => {
           <MainTileUnauthed />
           <InfoTile />
           <Encouragement />
+          <Footer />
         </motion.div>
       )}
     </>
