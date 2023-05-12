@@ -8,7 +8,7 @@ export const AuthedTilesGroup: React.FC = () => {
   const { selectedTileDate } = Date.useContainer()
 
   return (
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
+    <div className="relative top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 transform">
       {user && !isLoading && (
         <motion.div
           layout
@@ -18,7 +18,7 @@ export const AuthedTilesGroup: React.FC = () => {
         >
           <div className="relative flex w-full justify-center font-semibold text-yellow-50">
             <div className="text-5xl">{selectedTileDate.format("MMMM")}</div>
-            <div className="text-sm absolute top-12">
+            <div className="absolute top-14 text-sm text-yellow-100">
               {selectedTileDate.format("YYYY")}
             </div>
           </div>

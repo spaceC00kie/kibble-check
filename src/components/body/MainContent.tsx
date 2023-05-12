@@ -6,11 +6,14 @@ import { LoadingSpinner } from "./LoadingSpinner"
 import { UnauthedTilesGroup } from "./tiles/unauthed/UnauthedTilesGroup"
 
 export const MainContent: React.FC = () => {
-  const { user, isLoading } = Auth.useContainer()
+  const { auth, user, isLoading } = Auth.useContainer()
+  const paddingAtTop = auth?.currentUser ? "" : "pt-4"
 
   return (
     <div className="flex h-full justify-center">
-      <div className="flex max-w-[52em] grow flex-col gap-3 px-3 pt-4">
+      <div
+        className={`${paddingAtTop} flex max-w-[52em] grow flex-col gap-3 px-3`}
+      >
         <LayoutGroup>
           {isLoading ? (
             <LoadingSpinner />
