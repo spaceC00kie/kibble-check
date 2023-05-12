@@ -28,7 +28,7 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
   const todaysDate = dayjs()
   const dateOffsetValue = day - tileLength / 2
   const offsetTileDate = todaysDate.add(dateOffsetValue, "day")
-  const prettyDate = offsetTileDate.format("Do dddd")
+  const prettyDate = offsetTileDate.format("Do, dddd")
   const firestoreDate = prettyDate.valueOf()
   const dayDocRef = doc(
     db,
@@ -76,43 +76,45 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
   return (
     <div className="flex w-full items-center justify-between gap-2">
       <div>{prettyDate}</div>
-      <div>
-        <FormControlLabel
-          checked={am}
-          onChange={handleAmOnChange}
-          control={
-            <Checkbox
-              className={loadingStyle}
-              disabled={!isSelected}
-              size="medium"
-              sx={{
-                color: "#ca8a04", // tailwind yellow-600
-                "&.Mui-checked": {
-                  color: "#eab308", // tailwind yellow-500
-                },
-              }}
-            />
-          }
-          label="am"
-        />
-        <FormControlLabel
-          className={loadingStyle}
-          checked={pm}
-          onChange={handlePmOnChange}
-          control={
-            <Checkbox
-              disabled={!isSelected}
-              size="medium"
-              sx={{
-                color: "#ea580c", // tailwind orange-600
-                "&.Mui-checked": {
-                  color: "#f97316", // tailwind orange-500
-                },
-              }}
-            />
-          }
-          label="pm"
-        />
+      <div className="w-1/2">
+        <div>
+          <FormControlLabel
+            checked={am}
+            onChange={handleAmOnChange}
+            control={
+              <Checkbox
+                className={loadingStyle}
+                disabled={!isSelected}
+                size="medium"
+                sx={{
+                  color: "#ca8a04", // tailwind yellow-600
+                  "&.Mui-checked": {
+                    color: "#eab308", // tailwind yellow-500
+                  },
+                }}
+              />
+            }
+            label="am"
+          />
+          <FormControlLabel
+            className={loadingStyle}
+            checked={pm}
+            onChange={handlePmOnChange}
+            control={
+              <Checkbox
+                disabled={!isSelected}
+                size="medium"
+                sx={{
+                  color: "#ea580c", // tailwind orange-600
+                  "&.Mui-checked": {
+                    color: "#f97316", // tailwind orange-500
+                  },
+                }}
+              />
+            }
+            label="pm"
+          />
+        </div>
       </div>
     </div>
   )
