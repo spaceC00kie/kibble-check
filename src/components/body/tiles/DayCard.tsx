@@ -75,46 +75,44 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
 
   return (
     <div className="flex w-full items-center justify-between gap-2">
-      <div>{prettyDate}</div>
+      <div className="text-md w-1/2 sm:text-lg">{prettyDate}</div>
       <div className="w-1/2">
-        <div>
-          <FormControlLabel
-            checked={am}
-            onChange={handleAmOnChange}
-            control={
-              <Checkbox
-                className={loadingStyle}
-                disabled={!isSelected}
-                size="medium"
-                sx={{
-                  color: "#ca8a04", // tailwind yellow-600
-                  "&.Mui-checked": {
-                    color: "#eab308", // tailwind yellow-500
-                  },
-                }}
-              />
-            }
-            label="am"
-          />
-          <FormControlLabel
-            className={loadingStyle}
-            checked={pm}
-            onChange={handlePmOnChange}
-            control={
-              <Checkbox
-                disabled={!isSelected}
-                size="medium"
-                sx={{
-                  color: "#ea580c", // tailwind orange-600
-                  "&.Mui-checked": {
-                    color: "#f97316", // tailwind orange-500
-                  },
-                }}
-              />
-            }
-            label="pm"
-          />
-        </div>
+        <FormControlLabel
+          checked={am}
+          onChange={handleAmOnChange}
+          control={
+            <Checkbox
+              className={loadingStyle}
+              disabled={!isSelected}
+              size="medium"
+              sx={{
+                color: "#ca8a04", // tailwind yellow-600
+                "&.Mui-checked": {
+                  color: "#eab308", // tailwind yellow-500
+                },
+              }}
+            />
+          }
+          label="am"
+        />
+        <FormControlLabel
+          className={loadingStyle}
+          checked={pm}
+          onChange={handlePmOnChange}
+          control={
+            <Checkbox
+              disabled={!isSelected}
+              size="medium"
+              sx={{
+                color: "#ea580c", // tailwind orange-600
+                "&.Mui-checked": {
+                  color: "#f97316", // tailwind orange-500
+                },
+              }}
+            />
+          }
+          label="pm"
+        />
       </div>
     </div>
   )
