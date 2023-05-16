@@ -1,5 +1,5 @@
-# Has the Dog Been Fed?
-### Hosted at KibbleCheck.com
+# KibbleCheck
+
 ## No more double-dinners or missed meals for your fur-baby!
 
 Introducing KibbleCheck.com, a unique Progressive Web App (PWA) designed to eliminate the guesswork and stress from your dog's meal schedule. Catering to the modern, busy pet owner, we ensure your dog is fed on time, every time, and that overfeeding due to confusion is a thing of the past.

@@ -1,11 +1,11 @@
 {
   "firestore": {
-    "target": "has-the-dog-been-fed",
+    "target": "kibble-check",
     "rules": "firestore.rules"
   },
   "hosting": [
     {
-      "target": "has-the-dog-been-fed",
+      "target": "kibble-check",
       "predeploy": "yarn build",
       "public": "dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
