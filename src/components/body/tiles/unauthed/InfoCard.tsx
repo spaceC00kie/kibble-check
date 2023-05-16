@@ -57,11 +57,11 @@ export const InfoCard: React.FC<Props> = ({
               {title}
             </div>
             <div className="z-50 h-full w-full p-5">
-              <div className="flex h-full flex-col gap-4 text-stone-200">
+              <div className="flex h-full flex-col gap-4 text-yellow-50">
                 <div className={`${!description2 && "h-full"}`}>
                   {description1}
                 </div>
-                <div className="text-stone-200">{description2}</div>
+                <div className="text-yellow-50">{description2}</div>
               </div>
             </div>
             <div className="absolute h-[35em] w-[35em] translate-x-48 translate-y-40 rounded-full bg-red-800 opacity-50 blur-2xl" />

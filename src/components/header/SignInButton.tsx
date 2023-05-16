@@ -1,4 +1,3 @@
-import { motion } from "framer-motion"
 import { Auth } from "../../containers/Auth"
 
 interface Props {}
