@@ -16,8 +16,8 @@ export default defineConfig({
       ],
       manifest: {
         id: "/",
-        name: "Has the Dog Been Fed?",
-        short_name: "Puppy Hungry?",
+        name: "KibbleCheck",
+        short_name: "KibbleCheck",
         description: "Keeping track of your dog's meals",
         theme_color: "#ffffff",
         icons: [
