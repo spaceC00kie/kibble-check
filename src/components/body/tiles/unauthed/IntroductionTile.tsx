@@ -26,10 +26,7 @@ export const IntroductionTile = () => {
       </div>
       <div className="m-3 flex flex-col gap-3 rounded-md border border-yellow-500 border-opacity-50 bg-red-900 bg-opacity-70 p-2 text-lg font-bold text-yellow-50 sm:ml-14 sm:w-1/2 sm:text-2xl">
         {/* If text is too short, unwanted sizing behavior */}
-        <p>How often do you think "Has the dog been fed?"</p>
-        <p className="text-lg text-yellow-50">
-          This app can give you the answer!
-        </p>
+        <p>Know Fido's been fed with KibbleCheck!</p>
       </div>
       <div className="absolute -z-50 h-[35em] w-[35em] -translate-x-[16em] translate-y-8 rounded-full bg-yellow-600 opacity-90 blur-2xl" />
     </motion.div>
