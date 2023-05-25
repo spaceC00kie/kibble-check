@@ -10,7 +10,7 @@ export const MainTileUnauthed = () => {
       transition={{
         duration: 0.6,
       }}
-      className="flex min-h-[32em] shrink-0 flex-col gap-2 overflow-clip rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-2 sm:flex-row"
+      className="flex min-h-[32em] shrink-0 flex-col justify-evenly gap-4 overflow-clip rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-4 sm:flex-row"
       style={{
         backdropFilter: "blur(16px)",
       }}
@@ -19,8 +19,9 @@ export const MainTileUnauthed = () => {
         <div className="rounded-md border border-yellow-600 bg-red-800 bg-opacity-50 p-4 text-3xl font-bold text-yellow-50">
           Effortless Meal Tracking
           <div className="pb-2 text-xl font-semibold">
-            Sign in with Google, check "am" or "pm" on the custom-built calendar rolodex when your pet dines,
-            and easily review their feeding history.
+            Sign in with Google, check "am" or "pm" on the custom-built calendar
+            rolodex when your pet dines, and easily review their feeding
+            history.
           </div>
           <div className="rounded-md border border-yellow-700 bg-red-900 p-2 text-base font-normal">
             Upcoming Feature:
@@ -33,7 +34,7 @@ export const MainTileUnauthed = () => {
           </div>
         </div>
       </div>
-      <div className="grid place-content-center sm:w-1/2">
+      <div className="grid place-content-center sm:w-1/3">
         <img
           src={calendar}
           alt="calendar"
