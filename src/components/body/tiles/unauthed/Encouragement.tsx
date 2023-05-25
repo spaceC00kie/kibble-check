@@ -16,7 +16,7 @@ export const Encouragement = () => {
       }}
     >
       <div className="m-5 grid place-content-center gap-3 rounded-md border border-yellow-500 border-opacity-50 bg-red-900 bg-opacity-70 p-10 font-bold text-yellow-50">
-        Sign in with Google to get started keeping up with your pet's meals!
+        Ready to simplify your pet's meal schedule?
       </div>
       <div className="grid w-full place-content-center">
         <SignInButton />

@@ -2,15 +2,13 @@ import { motion } from "framer-motion"
 
 interface Props {
   title: string
-  description1: string | React.ReactNode
-  description2?: string | React.ReactNode
+  description: string | React.ReactNode
   icon?: React.ReactNode
 }
 
 export const InfoCard: React.FC<Props> = ({
   title,
-  description1,
-  description2,
+  description,
   icon,
 }) => {
   return (
@@ -45,7 +43,7 @@ export const InfoCard: React.FC<Props> = ({
       <div className="h-full w-full rounded-lg border-4 border-yellow-700 bg-yellow-700">
         <div className="flex h-full flex-col">
           <div
-            className="z-50 flex h-20 items-center justify-center rounded-t-md bg-red-900  bg-opacity-80 p-1 text-center text-lg font-bold text-yellow-50"
+            className="z-50 flex h-20 items-center justify-center rounded-t-md bg-red-900 bg-opacity-80 p-1 text-center text-lg font-bold text-yellow-50"
             style={{ backdropFilter: "blur(16px)" }}
           >
             <div className="grid h-20 w-20 translate-y-10 place-content-center rounded-full border-4 border-yellow-700 bg-red-900">
@@ -57,11 +55,8 @@ export const InfoCard: React.FC<Props> = ({
               {title}
             </div>
             <div className="z-50 h-full w-full p-5">
-              <div className="flex h-full flex-col gap-4 text-stone-200">
-                <div className={`${!description2 && "h-full"}`}>
-                  {description1}
-                </div>
-                <div className="text-stone-200">{description2}</div>
+              <div className="flex h-full flex-col gap-4 text-yellow-50">
+                {description}
               </div>
             </div>
             <div className="absolute h-[35em] w-[35em] translate-x-48 translate-y-40 rounded-full bg-red-800 opacity-50 blur-2xl" />

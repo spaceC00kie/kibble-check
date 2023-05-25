@@ -21,23 +21,22 @@ export const InfoTile: React.FC<Props> = () => {
           },
         },
       }}
-      className=" grid gap-3 rounded-md text-yellow-50 sm:grid-cols-2 md:grid-cols-3"
+      className="grid gap-3 rounded-md text-yellow-50 sm:grid-cols-2 md:grid-cols-3"
     >
       <InfoCard
         icon={<TfiThought />}
-        title="Are you forgetful?"
-        description1="... Did I actually do that?"
-        description2="... Did I imagine it?"
+        title="Forgetful Much?"
+        description="Ever find yourself asking: 'Did I feed the dog or just think about it?'"
       />
       <InfoCard
         icon={<GiMagickTrick />}
-        title="Is your dog a con-artist?"
-        description1="They'll lie to get more food"
+        title="Smart Dog, or Master Manipulator?"
+        description="Does your pooch play innocent to sneak extra meals?"
       />
       <InfoCard
         icon={<BiWalk />}
-        title="Do you have a dog walker?"
-        description1="Everyone is on the same page!"
+        title="Using a Dog Walker or Pet Sitter?"
+        description="Make sure everyone knows when your pet was last fed!"
       />
     </motion.div>
   )
