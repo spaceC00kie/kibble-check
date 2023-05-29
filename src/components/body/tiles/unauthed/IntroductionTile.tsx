@@ -1,6 +1,5 @@
 import { motion } from "framer-motion"
-// dog icon accent color is orange-600
-import { default as vault } from "/src/assets/headingTile.svg"
+import { default as dog } from "/src/assets/headingTile.svg"
 
 export const IntroductionTile = () => {
   return (
@@ -22,9 +21,9 @@ export const IntroductionTile = () => {
       }}
     >
       <div className="flex h-32 shrink justify-start sm:w-1/2">
-        <img src={vault} alt="vault" className="drop-shadow-2xl" />
+        <img src={dog} alt="dog" className="drop-shadow-2xl" />
       </div>
-      <div className="m-3 flex flex-col gap-3 rounded-md border border-yellow-500 border-opacity-50 bg-red-900 bg-opacity-70 p-2 text-lg font-bold text-yellow-50 sm:ml-14 sm:w-1/2 sm:text-2xl">
+      <div className="m-3 flex flex-col rounded-md border border-yellow-500 border-opacity-50 bg-red-900 bg-opacity-70 p-4 text-lg font-bold text-yellow-50 sm:ml-14 sm:w-1/2 sm:text-2xl">
         {/* If text is too short, unwanted sizing behavior */}
         <p>Know Fido's been fed with KibbleCheck!</p>
       </div>
