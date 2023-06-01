@@ -10,31 +10,21 @@ export const MainTileUnauthed = () => {
       transition={{
         duration: 0.6,
       }}
-      className="flex min-h-[32em] shrink-0 flex-col justify-evenly gap-4 overflow-clip rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-4 sm:flex-row"
+      className="flex shrink-0 flex-col justify-evenly gap-4 overflow-clip rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-4 sm:flex-row"
       style={{
         backdropFilter: "blur(16px)",
       }}
     >
       <div className="grid h-full place-content-center sm:w-1/2">
-        <div className="rounded-md border border-yellow-600 bg-red-800 bg-opacity-50 p-4 text-3xl font-bold text-yellow-50">
-          Effortless Meal Tracking
-          <div className="pb-2 text-xl font-semibold">
-            Sign in with Google, check "am" or "pm" on the custom-built calendar
-            rolodex when your pet dines, and easily review their feeding
-            history.
-          </div>
-          <div className="rounded-md border border-yellow-700 bg-red-900 p-2 text-base font-normal">
-            Upcoming Feature:
-            <div className="text-sm">
-              Soon, you'll be able to welcome all hands on deck - from your life
-              partner to your trusted dog walker - into your dog's unique 'Care
-              Network.' Added members will be able to check off feedings,
-              ensuring a synced team and a healthily nourished canine companion.
-            </div>
-          </div>
+        <div className="rounded-md border border-yellow-600 bg-red-800 bg-opacity-50 p-5 text-xl font-semibold text-yellow-50 sm:text-2xl md:text-3xl lg:font-bold">
+          Simple Meal Tracking
+          <ul className="grid list-square place-content-center py-2 pl-4 text-lg font-normal sm:font-semibold md:text-xl lg:font-bold">
+            <li>Check off feedings</li>
+            <li>View the record</li>
+          </ul>
         </div>
       </div>
-      <div className="grid place-content-center sm:w-1/3">
+      <div className="grid place-content-center rounded-md border border-yellow-600 bg-red-800 bg-opacity-50 p-1 sm:w-1/3">
         <img
           src={calendar}
           alt="calendar"
