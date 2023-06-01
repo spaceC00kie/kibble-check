@@ -1,8 +1,8 @@
 import { motion } from "framer-motion"
-import { InfoCard } from "./InfoCard"
-import { TfiThought } from "react-icons/tfi"
-import { GiMagickTrick } from "react-icons/gi"
 import { BiWalk } from "react-icons/bi"
+import { GiBrain } from "react-icons/gi"
+import { MdMoneyOffCsred } from "react-icons/md"
+import { InfoCard } from "./InfoCard"
 
 interface Props {}
 
@@ -24,19 +24,19 @@ export const InfoTile: React.FC<Props> = () => {
       className="grid gap-3 rounded-md text-yellow-50 sm:grid-cols-2 md:grid-cols-3"
     >
       <InfoCard
-        icon={<TfiThought />}
-        title="Forgetful Much?"
-        description="Ever find yourself asking: 'Did I feed the dog or just think about it?'"
+        icon={<GiBrain size={36} />}
+        title="Suspiciously Smart Dog?"
+        description="Beware of your dog outfoxing you for nibbles."
       />
       <InfoCard
-        icon={<GiMagickTrick />}
-        title="Smart Dog, or Master Manipulator?"
-        description="Does your pooch play innocent to sneak extra meals?"
-      />
-      <InfoCard
-        icon={<BiWalk />}
+        icon={<BiWalk size={36} />}
         title="Using a Dog Walker or Pet Sitter?"
-        description="Make sure everyone knows when your pet was last fed!"
+        description="Take the guesswork out of coordinating mealtimes."
+      />
+      <InfoCard
+        icon={<MdMoneyOffCsred size={36} />}
+        title="KibbleCheck is 100% free!"
+        description="No ads, no data collection, no strings attached."
       />
     </motion.div>
   )

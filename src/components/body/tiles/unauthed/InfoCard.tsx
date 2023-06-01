@@ -35,7 +35,7 @@ export const InfoCard: React.FC<Props> = ({
           transition: { duration: 0.3 },
         },
       }}
-      className="h-96 overflow-clip rounded-lg border border-yellow-500"
+      className="h-80 overflow-clip rounded-lg border border-yellow-500"
       style={{
         backdropFilter: "blur(16px)",
       }}
@@ -51,7 +51,7 @@ export const InfoCard: React.FC<Props> = ({
             </div>
           </div>
           <div className="flex h-full flex-col items-center justify-center font-bold text-yellow-50">
-            <div className="z-50 mt-10 p-2 text-center text-lg text-yellow-50">
+            <div className="z-50 h-28 mt-10 p-2 text-center text-lg text-yellow-50">
               {title}
             </div>
             <div className="z-50 h-full w-full p-5">
