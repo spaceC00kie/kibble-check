@@ -20,9 +20,9 @@ export const Encouragement = () => {
         <img src={walk} alt="walk" className="drop-shadow-xl" />
         {/*img accent color is amber-500*/}
       </div>
-      <div className="m-5 flex flex-col justify-evenly gap-2 rounded-md border border-yellow-500 border-opacity-50 bg-red-900 bg-opacity-70 p-6 text-yellow-50">
+      <div className="m-5 flex flex-col justify-evenly gap-2 rounded-md border border-yellow-500 border-opacity-50 bg-red-900 bg-opacity-70 p-6 text-stone-50">
         <div className="text-2xl font-bold">Get in step with your dog!</div>
-        <div className="text-base font-normal">
+        <div className="text-base font-normal text-stone-100">
           KibbleCheck keeps you connected with your dog's meal schedule. Take a
           walk around our calendar to trace your dog's feeding footsteps!
         </div>

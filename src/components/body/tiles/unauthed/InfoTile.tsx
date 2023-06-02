@@ -21,7 +21,7 @@ export const InfoTile: React.FC<Props> = () => {
           },
         },
       }}
-      className="grid gap-3 rounded-md text-yellow-50 sm:grid-cols-2 md:grid-cols-3"
+      className="grid gap-3 sm:grid-cols-2 md:grid-cols-3"
     >
       <InfoCard
         icon={<GiBrain size={36} />}
