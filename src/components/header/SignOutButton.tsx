@@ -11,7 +11,7 @@ export const SignOutButton: React.FC<Props> = ({}) => {
         <div className="mx-2 flex flex-col justify-center">
           <button
             onClick={signOutWithGoogle}
-            className="clickable color-shift grid h-9 place-content-center rounded-md border border-yellow-600 p-2 text-xs text-yellow-50 hover:border-red-400 sm:text-sm"
+            className="clickable color-shift grid h-9 place-content-center rounded-md border border-yellow-600 p-2 text-xs text-stone-50 hover:border-red-400 sm:text-sm"
           >
             Sign Out
           </button>

@@ -54,7 +54,7 @@ export const Calendar: React.FC = () => {
       initial={{ opacity: 0, scale: 0 }}
       animate={animate(index, selectedTileIndex)}
       key={index}
-      className="flex h-24 w-2/3 min-w-[20rem] max-w-[24rem] shrink-0 items-center justify-between overflow-clip whitespace-nowrap rounded-md border border-yellow-600 bg-red-900 p-6 font-semibold text-yellow-50"
+      className="flex h-24 w-2/3 min-w-[20rem] max-w-[24rem] shrink-0 items-center justify-between overflow-clip whitespace-nowrap rounded-md border border-yellow-600 bg-red-900 p-6 font-semibold text-stone-50"
       transition={{ type: "spring", bounce: 1, mass: 0.3, restDelta: 0 }}
     >
       <DayCard

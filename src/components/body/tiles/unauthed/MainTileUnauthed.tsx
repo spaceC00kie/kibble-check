@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { default as calendar } from "/src/assets/undraw_chore_list.svg"
+import { default as calendar } from "/src/assets/calendar.png"
 
 export const MainTileUnauthed = () => {
   return (
@@ -10,20 +10,26 @@ export const MainTileUnauthed = () => {
       transition={{
         duration: 0.6,
       }}
-      className="flex h-[32em] shrink-0 flex-col gap-2 overflow-clip rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-2 sm:flex-row"
+      className="flex shrink-0 flex-col justify-evenly gap-4 overflow-clip rounded-md border border-yellow-600 bg-red-900 bg-opacity-50 p-4 sm:flex-row"
       style={{
         backdropFilter: "blur(16px)",
       }}
     >
-      <div className="grid h-full place-content-center p-2 sm:w-1/2">
-        <div className="rounded-md border border-yellow-600 bg-red-800 bg-opacity-50 p-4 text-lg font-bold text-yellow-50">
-          Just log in with Google, check the AM or PM box when you feed your
-          dog, and come back any time to see the feeding history. Even if
-          someone else checked the box!
+      <div className="grid h-full place-content-center sm:w-1/2">
+        <div className="rounded-md border border-yellow-600 bg-red-800 bg-opacity-50 p-5 text-xl font-semibold text-stone-100 sm:text-2xl md:text-3xl lg:font-bold">
+          Simple Meal Tracking
+          <ul className="grid list-square place-content-center py-2 pl-4 text-lg text-stone-50 font-normal sm:font-semibold md:text-xl lg:font-bold">
+            <li>Check off feedings</li>
+            <li>View the record</li>
+          </ul>
         </div>
       </div>
-      <div className="grid place-content-center sm:w-1/2">
-        <img src={calendar} alt="calendar" />
+      <div className="grid place-content-center rounded-md border border-yellow-600 bg-red-800 bg-opacity-50 p-1 sm:w-1/3">
+        <img
+          src={calendar}
+          alt="calendar"
+          className="rounded-md border border-yellow-500"
+        />
       </div>
     </motion.div>
   )
