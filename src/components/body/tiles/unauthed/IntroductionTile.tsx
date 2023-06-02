@@ -23,7 +23,7 @@ export const IntroductionTile = () => {
       <div className="flex h-32 shrink justify-start sm:w-1/2">
         <img src={dog} alt="dog" className="drop-shadow-2xl" />
       </div>
-      <div className="m-3 flex flex-col rounded-md border border-yellow-500 border-opacity-50 bg-red-900 bg-opacity-70 p-4 text-lg font-bold text-stone-100 sm:ml-14 sm:w-1/2 sm:text-2xl">
+      <div className="m-3 flex flex-col rounded-md border border-yellow-500 border-opacity-50 bg-red-900 bg-opacity-70 p-4 text-lg font-bold text-stone-50 sm:ml-14 sm:w-1/2 sm:text-2xl">
         {/* If text is too short, unwanted sizing behavior */}
         <p>Know Fido's been fed with KibbleCheck!</p>
       </div>
