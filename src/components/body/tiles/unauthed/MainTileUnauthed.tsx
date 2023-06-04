@@ -18,13 +18,13 @@ export const MainTileUnauthed = () => {
       <div className="grid h-full place-content-center sm:w-1/2">
         <div className="rounded-md border border-yellow-600 bg-red-800 bg-opacity-50 p-5 text-xl font-semibold text-stone-100 sm:text-2xl md:text-3xl lg:font-bold">
           Simple Meal Tracking
-          <ul className="grid list-square place-content-center py-2 pl-4 text-lg text-stone-50 font-normal sm:font-semibold md:text-xl lg:font-bold">
+          <ul className="grid list-square place-content-center py-2 pl-4 text-lg font-normal text-stone-50 sm:font-semibold md:text-xl lg:font-bold">
             <li>Check off feedings</li>
             <li>View the record</li>
           </ul>
         </div>
       </div>
-      <div className="grid place-content-center rounded-md border border-yellow-600 bg-red-800 bg-opacity-50 p-1 sm:w-1/3">
+      <div className="grid place-content-center sm:w-1/3">
         <img
           src={calendar}
           alt="calendar"
