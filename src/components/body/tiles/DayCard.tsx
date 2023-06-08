@@ -1,11 +1,12 @@
 import { Checkbox, FormControlLabel } from "@mui/material"
 import dayjs from "dayjs"
+import advancedFormat from "dayjs/plugin/advancedFormat"
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
+import { FaPaw } from "react-icons/fa"
 import { firebaseApp } from "../../../../firestore.config"
 import { Auth } from "../../../containers/Auth"
 import { Date } from "../../../containers/Date"
-import advancedFormat from "dayjs/plugin/advancedFormat"
 
 dayjs.extend(advancedFormat)
 
@@ -73,8 +74,16 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
 
   const loadingStyle = isLoading ? "animate-pulse" : ""
 
+  const isToday = offsetTileDate.isSame(dayjs(), "day")
+
   return (
-    <div className="flex w-full items-center justify-between gap-2">
+    <div className="relative flex w-full items-center justify-between gap-2">
+      {isToday && (
+        <div className="absolute -z-50 h-[20em] w-[20em] -translate-x-36 -translate-y-28 rounded-full bg-indigo-700 opacity-30 blur-3xl" />
+      )}
+      <div className="absolute translate-x-[21em] translate-y-8 text-pink-950">
+        {isToday && <FaPaw />}
+      </div>
       <div className="text-md w-1/2 sm:text-lg">{prettyDate}</div>
       <div className="w-1/2">
         <FormControlLabel
