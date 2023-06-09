@@ -7,6 +7,7 @@ import { FaPaw } from "react-icons/fa"
 import { firebaseApp } from "../../../../firestore.config"
 import { Auth } from "../../../containers/Auth"
 import { Date } from "../../../containers/Date"
+import { WindowSize } from "../../../containers/WindowSize"
 
 dayjs.extend(advancedFormat)
 
@@ -21,6 +22,7 @@ const db = getFirestore(firebaseApp)
 export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
   const { auth } = Auth.useContainer()
   const { setSelectedTileDate } = Date.useContainer()
+  const { isSmall } = WindowSize.useContainer()
 
   useEffect(() => {
     if (isSelected) setSelectedTileDate(offsetTileDate)
@@ -93,7 +95,7 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
             <Checkbox
               className={loadingStyle}
               disabled={!isSelected}
-              size="medium"
+              size={isSmall ? "small" : "medium"}
               sx={{
                 color: "#ca8a04", // tailwind yellow-600
                 "&.Mui-checked": {
@@ -111,7 +113,7 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
           control={
             <Checkbox
               disabled={!isSelected}
-              size="medium"
+              size={isSmall ? "small" : "medium"}
               sx={{
                 color: "#ea580c", // tailwind orange-600
                 "&.Mui-checked": {
