@@ -7,9 +7,10 @@ import {
 import React, { useMemo } from "react"
 import { DayCard } from "./DayCard"
 import { useTileNavigation } from "./UseTileNavigation"
+import { BiHomeHeart } from "react-icons/bi"
 
 export const Calendar: React.FC = () => {
-  const { selectedTileIndex, tileLength } = useTileNavigation()
+  const { selectedTileIndex, tileLength, resetToToday } = useTileNavigation()
 
   const animate = (
     index: number,
@@ -66,8 +67,18 @@ export const Calendar: React.FC = () => {
   ))
 
   return (
-    <div className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden p-2">
-      {tiles}
-    </div>
+    <>
+      <div className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden">
+        {tiles}
+      </div>
+      <div className="absolute left-1.5 top-1.5 grid place-content-center">
+        <button
+          onClick={resetToToday}
+          className="clickable color-shift grid place-content-center rounded-md border border-yellow-500 bg-red-800 bg-opacity-50 p-2.5 text-stone-50 filter hover:bg-opacity-30"
+        >
+          <BiHomeHeart size={24} />
+        </button>
+      </div>
+    </>
   )
 }

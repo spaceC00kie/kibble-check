@@ -8,7 +8,7 @@ export const AuthedTilesGroup: React.FC = () => {
   const { selectedTileDate } = Date.useContainer()
 
   return (
-    <div className="relative left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 transform">
+    <div className="relative left-1/2 top-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 transform">
       {user && !isLoading && (
         <motion.div
           layout
@@ -16,9 +16,9 @@ export const AuthedTilesGroup: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="relative flex w-full justify-center font-semibold text-stone-50">
+          <div className="flex w-full flex-col items-center justify-center gap-3 font-semibold text-stone-50">
             <div className="text-5xl">{selectedTileDate.format("MMMM")}</div>
-            <div className="absolute top-14 text-sm text-stone-100">
+            <div className="text-sm text-stone-100">
               {selectedTileDate.format("YYYY")}
             </div>
           </div>

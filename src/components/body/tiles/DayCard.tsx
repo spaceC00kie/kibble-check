@@ -7,7 +7,6 @@ import { FaPaw } from "react-icons/fa"
 import { firebaseApp } from "../../../../firestore.config"
 import { Auth } from "../../../containers/Auth"
 import { Date } from "../../../containers/Date"
-import { WindowSize } from "../../../containers/WindowSize"
 
 dayjs.extend(advancedFormat)
 
@@ -22,7 +21,6 @@ const db = getFirestore(firebaseApp)
 export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
   const { auth } = Auth.useContainer()
   const { setSelectedTileDate } = Date.useContainer()
-  const { isSmall } = WindowSize.useContainer()
 
   useEffect(() => {
     if (isSelected) setSelectedTileDate(offsetTileDate)
@@ -81,10 +79,10 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
   return (
     <div className="relative flex w-full items-center justify-between gap-2">
       {isToday && (
-        <div className="absolute -z-50 h-[20em] w-[20em] -translate-x-36 -translate-y-28 rounded-full bg-indigo-700 opacity-30 blur-3xl" />
+        <div className="absolute -z-50 h-[20em] w-[20em] -translate-x-36 -translate-y-28 rounded-full bg-yellow-600 opacity-40 blur-2xl" />
       )}
-      <div className="absolute translate-x-[21em] translate-y-8 text-pink-950">
-        {isToday && <FaPaw />}
+      <div className="absolute -top-5 -left-5 rotate-90 text-sm text-yellow-500">
+        {isToday && <FaPaw className="rotate-45" />}
       </div>
       <div className="text-md w-1/2 sm:text-lg">{prettyDate}</div>
       <div className="w-1/2">
@@ -95,7 +93,7 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
             <Checkbox
               className={loadingStyle}
               disabled={!isSelected}
-              size={isSmall ? "small" : "medium"}
+              size={"medium"}
               sx={{
                 color: "#ca8a04", // tailwind yellow-600
                 "&.Mui-checked": {
@@ -113,7 +111,7 @@ export const DayCard: React.FC<Props> = ({ day, isSelected, tileLength }) => {
           control={
             <Checkbox
               disabled={!isSelected}
-              size={isSmall ? "small" : "medium"}
+              size={"medium"}
               sx={{
                 color: "#ea580c", // tailwind orange-600
                 "&.Mui-checked": {
