@@ -10,8 +10,14 @@ export const Donate: React.FC<Props> = ({}) => {
         funds to this bitcoin address.
       </p>
       <div className="flex gap-2">
-        <img src="./src/assets/bitcoinAddress.png" />
-        <p className="grid place-content-center font-bold">
+        <img
+          src="./src/assets/bitcoinAddress.png"
+          alt="Creator's crypto wallet address as a QR code"
+        />
+        <p
+          className="grid place-content-center font-bold"
+          aria-label="crypto wallet address"
+        >
           bc1q22ydn8wg8rv7f9e82dmpsfq5zsw9jlxah0rg7q
         </p>
       </div>

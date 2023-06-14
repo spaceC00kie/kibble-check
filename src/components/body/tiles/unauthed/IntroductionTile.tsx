@@ -19,9 +19,15 @@ export const IntroductionTile = () => {
       style={{
         backdropFilter: "blur(16px)",
       }}
+      role="complementary"
+      aria-label="Introduction to KibbleCheck"
     >
       <div className="flex h-32 shrink justify-start sm:w-1/2">
-        <img src={dog} alt="dog" className="drop-shadow-2xl" />
+        <img
+          src={dog}
+          alt="Simple, drawn image of black dog with yellow bandana"
+          className="drop-shadow-2xl"
+        />
       </div>
       <div className="m-3 flex flex-col rounded-md border border-yellow-500 border-opacity-50 bg-red-900 bg-opacity-70 p-4 text-lg font-bold text-stone-50 sm:ml-14 sm:w-1/2 sm:text-2xl">
         {/* If text is too short, unwanted sizing behavior */}

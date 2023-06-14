@@ -68,15 +68,22 @@ export const Calendar: React.FC = () => {
 
   return (
     <>
-      <div className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden">
+      <div
+        aria-label="Rolodex-style calendar that scrolls vertically"
+        className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden"
+      >
         {tiles}
       </div>
       <div className="absolute left-1.5 top-1.5 grid place-content-center">
         <button
+          aria-label="Button to reset the selected day in the calendar to today's date"
           onClick={resetToToday}
           className="clickable color-shift grid place-content-center rounded-md border border-yellow-500 bg-red-800 bg-opacity-50 p-2.5 text-stone-50 filter hover:bg-opacity-30"
         >
-          <BiHomeHeart size={24} />
+          <BiHomeHeart
+            size={24}
+            aria-label="Icon of a house with a heart inside"
+          />
         </button>
       </div>
     </>
