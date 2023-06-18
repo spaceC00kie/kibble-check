@@ -74,7 +74,7 @@ export const Calendar: React.FC = () => {
       >
         {tiles}
       </div>
-      <div className="absolute left-1.5 top-1.5 grid place-content-center">
+      <div className="absolute left-1.5 top-1.5 grid place-content-center sm:left-24 md:left-40">
         <button
           aria-label="Button to reset the selected day in the calendar to today's date"
           onClick={resetToToday}

@@ -8,7 +8,7 @@ export const AuthedTilesGroup: React.FC = () => {
   const { selectedTileDate } = Date.useContainer()
 
   return (
-    <div className="relative left-1/2 top-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 transform">
+    <div className="relative grid place-content-center">
       {user && !isLoading && (
         <motion.div
           layout
