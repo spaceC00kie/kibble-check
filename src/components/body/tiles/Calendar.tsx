@@ -6,12 +6,16 @@ import {
 } from "framer-motion"
 import React, { useMemo } from "react"
 import { DayCard } from "./DayCard"
-import { useTileNavigation } from "./UseTileNavigation"
-import { BiHomeHeart } from "react-icons/bi"
 
-export const Calendar: React.FC = () => {
-  const { selectedTileIndex, tileLength, resetToToday } = useTileNavigation()
+interface Props {
+  selectedTileIndex: number
+  tileLength: number
+}
 
+export const Calendar: React.FC<Props> = ({
+  selectedTileIndex,
+  tileLength,
+}) => {
   const animate = (
     index: number,
     selectedTileIndex: number,
@@ -73,18 +77,6 @@ export const Calendar: React.FC = () => {
         className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden"
       >
         {tiles}
-      </div>
-      <div className="absolute left-1.5 top-1.5 grid place-content-center sm:left-24 md:left-40">
-        <button
-          aria-label="Button to reset the selected day in the calendar to today's date"
-          onClick={resetToToday}
-          className="clickable color-shift grid place-content-center rounded-md border border-yellow-500 bg-red-800 bg-opacity-50 p-2.5 text-stone-50 filter hover:bg-opacity-30"
-        >
-          <BiHomeHeart
-            size={24}
-            aria-label="Icon of a house with a heart inside"
-          />
-        </button>
       </div>
     </>
   )
