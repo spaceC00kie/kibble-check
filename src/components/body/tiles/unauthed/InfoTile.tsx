@@ -41,7 +41,7 @@ export const InfoTile: React.FC<Props> = () => {
         icon={
           <MdMoneyOffCsred
             size={36}
-            aria-label="Dollar sign with a line through it"
+            aria-label="Dollar sign with a slash through it"
           />
         }
         title="KibbleCheck is 100% free!"

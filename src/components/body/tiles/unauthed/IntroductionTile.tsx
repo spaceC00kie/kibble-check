@@ -25,7 +25,7 @@ export const IntroductionTile = () => {
       <div className="flex h-32 shrink justify-start sm:w-1/2">
         <img
           src={dog}
-          alt="Simple, drawn image of black dog with yellow bandana"
+          alt="Simple, drawn image of a black dog with a yellow bandana"
           className="drop-shadow-2xl"
         />
       </div>

@@ -71,13 +71,11 @@ export const Calendar: React.FC<Props> = ({
   ))
 
   return (
-    <>
-      <div
-        aria-label="Rolodex-style calendar that scrolls vertically"
-        className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden"
-      >
-        {tiles}
-      </div>
-    </>
+    <div
+      aria-label="Rolodex-style calendar that scrolls vertically"
+      className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden"
+    >
+      {tiles}
+    </div>
   )
 }
