@@ -15,9 +15,15 @@ export const Encouragement = () => {
       style={{
         backdropFilter: "blur(16px)",
       }}
+      role="complementary"
+      aria-label="Encouragement to use KibbleCheck"
     >
       <div className="grid place-content-center p-12">
-        <img src={walk} alt="walk" className="drop-shadow-xl" />
+        <img
+          src={walk}
+          alt="Simple drawing of a man in a yellow shirt walking a small dog with a yellow tree nearby"
+          className="drop-shadow-xl"
+        />
         {/*img accent color is amber-500*/}
       </div>
       <div className="m-5 flex flex-col justify-evenly gap-2 rounded-md border border-yellow-500 border-opacity-50 bg-red-900 bg-opacity-70 p-6 text-stone-50">
@@ -27,7 +33,10 @@ export const Encouragement = () => {
           walk around our calendar to trace your dog's feeding footsteps!
         </div>
         <div className="mt-3 flex items-center justify-end">
-          <SignInButton text="Get Started" />
+          <SignInButton
+            text="Get Started"
+            aria-label="Sign in button"
+          />
         </div>
       </div>
       <div className="absolute -z-50 h-[22em] w-[22em] -translate-y-56 translate-x-44 rounded-full bg-yellow-600 opacity-90 blur-lg" />

@@ -4,6 +4,9 @@ export const useTileNavigation = () => {
   const tileLength = 10000
   const [selectedTileIndex, setSelectedTileIndex] = useState(tileLength / 2)
   const [startY, setStartY] = useState<number>(0)
+  const resetToToday = () => {
+    setSelectedTileIndex(tileLength / 2)
+  }
 
   useEffect(() => {
     const handleWheel = (event: WheelEvent) => {
@@ -67,8 +70,10 @@ export const useTileNavigation = () => {
       window.removeEventListener("touchmove", handleTouchMove)
     }
   }, [selectedTileIndex, startY])
+
   return {
     selectedTileIndex,
     tileLength,
+    resetToToday,
   }
 }

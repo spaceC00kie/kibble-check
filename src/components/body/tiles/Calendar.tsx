@@ -6,11 +6,16 @@ import {
 } from "framer-motion"
 import React, { useMemo } from "react"
 import { DayCard } from "./DayCard"
-import { useTileNavigation } from "./UseTileNavigation"
 
-export const Calendar: React.FC = () => {
-  const { selectedTileIndex, tileLength } = useTileNavigation()
+interface Props {
+  selectedTileIndex: number
+  tileLength: number
+}
 
+export const Calendar: React.FC<Props> = ({
+  selectedTileIndex,
+  tileLength,
+}) => {
   const animate = (
     index: number,
     selectedTileIndex: number,
@@ -66,7 +71,10 @@ export const Calendar: React.FC = () => {
   ))
 
   return (
-    <div className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden p-2">
+    <div
+      aria-label="Rolodex-style calendar that scrolls vertically"
+      className="flex h-[36em] shrink-0 flex-col items-center justify-center overflow-hidden"
+    >
       {tiles}
     </div>
   )

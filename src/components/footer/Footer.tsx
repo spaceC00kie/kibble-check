@@ -1,7 +1,6 @@
 import { motion } from "framer-motion"
 import React from "react"
 import { AiOutlineGithub } from "react-icons/ai"
-import { BiSupport } from "react-icons/bi"
 import { FaDonate, FaDiscord } from "react-icons/fa"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
@@ -19,15 +18,15 @@ export const Footer: React.FC<Props> = ({}) => {
         <SocialLink
           href="https://github.com/spaceC00kie/kibble-check"
           icon={<AiOutlineGithub />}
-          title="Source Code"
+          title="Link to the source code for the app"
         />
         <SocialLink
-          title="Discord"
           href="https://discord.gg/zGbx9x6YWw"
           icon={<FaDiscord />}
+          title="Link to our Discord channel"
         />
         <SocialLink
-          title="Donate"
+          title="Click for creator's crypto wallet address"
           icon={<FaDonate />}
           onClick={() => {
             MySwal.fire({
