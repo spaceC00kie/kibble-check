@@ -36,7 +36,6 @@ KibbleCheck is built with a robust and modern technology stack:
 ###### Backend
 
 [![TypeScript](https://badges.aleen42.com/src/typescript.svg)](#)
-[![NodeJS](https://badges.aleen42.com/src/node.svg)](#)
 [![Firebase](https://img.shields.io/badge/Firebase-%23039BE5.svg?style=flat&logo=firebase&labelColor=525252)](#)
 
 This combination of technologies creates a sleek, intuitive, and responsive application.
